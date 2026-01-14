@@ -50,19 +50,23 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sage: {
-          DEFAULT: "hsl(var(--sage))",
-          light: "hsl(var(--sage-light))",
-          dark: "hsl(var(--sage-dark))",
+        indigo: {
+          DEFAULT: "hsl(var(--indigo))",
+          light: "hsl(var(--indigo-light))",
+          dark: "hsl(var(--indigo-dark))",
         },
-        beige: {
-          DEFAULT: "hsl(var(--beige))",
-          warm: "hsl(var(--beige-warm))",
+        purple: {
+          DEFAULT: "hsl(var(--purple))",
+          soft: "hsl(var(--purple-soft))",
         },
-        cream: "hsl(var(--cream))",
-        earth: {
-          DEFAULT: "hsl(var(--earth))",
-          soft: "hsl(var(--earth-soft))",
+        blue: {
+          DEFAULT: "hsl(var(--blue))",
+          soft: "hsl(var(--blue-soft))",
+        },
+        lavender: "hsl(var(--lavender))",
+        slate: {
+          DEFAULT: "hsl(var(--slate))",
+          soft: "hsl(var(--slate-soft))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -122,9 +126,9 @@ export default {
         "pulse-soft": "pulse-soft 3s ease-in-out infinite",
       },
       boxShadow: {
-        soft: "0 4px 20px -4px hsl(30 10% 20% / 0.08)",
-        card: "0 8px 32px -8px hsl(30 10% 20% / 0.1)",
-        hover: "0 12px 40px -12px hsl(30 10% 20% / 0.15)",
+        soft: "0 4px 20px -4px hsl(245 50% 30% / 0.08)",
+        card: "0 8px 32px -8px hsl(245 50% 30% / 0.1)",
+        hover: "0 12px 40px -12px hsl(245 50% 30% / 0.18)",
       },
     },
   },
