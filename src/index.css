@@ -6,108 +6,112 @@
 
 @layer base {
   :root {
-    /* Healer Wellness Palette */
-    --background: 40 33% 97%;
-    --foreground: 30 10% 20%;
+    /* Healer Wellness Palette - Indigo/Purple/Blue */
+    --background: 240 30% 98%;
+    --foreground: 240 20% 15%;
 
-    --card: 40 30% 95%;
-    --card-foreground: 30 10% 20%;
+    --card: 250 35% 97%;
+    --card-foreground: 240 20% 15%;
 
-    --popover: 40 33% 97%;
-    --popover-foreground: 30 10% 20%;
+    --popover: 240 30% 98%;
+    --popover-foreground: 240 20% 15%;
 
-    /* Sage green - primary brand color */
-    --primary: 140 20% 45%;
-    --primary-foreground: 40 33% 97%;
+    /* Indigo - primary brand color */
+    --primary: 245 58% 51%;
+    --primary-foreground: 240 30% 98%;
 
-    /* Warm beige - secondary */
-    --secondary: 35 30% 88%;
-    --secondary-foreground: 30 10% 25%;
+    /* Soft lavender - secondary */
+    --secondary: 250 40% 92%;
+    --secondary-foreground: 245 35% 30%;
 
-    /* Muted sage */
-    --muted: 140 15% 92%;
-    --muted-foreground: 30 8% 45%;
+    /* Muted purple */
+    --muted: 250 25% 94%;
+    --muted-foreground: 240 15% 45%;
 
-    /* Light sage accent */
-    --accent: 140 25% 85%;
-    --accent-foreground: 140 20% 30%;
+    /* Light blue accent */
+    --accent: 220 60% 90%;
+    --accent-foreground: 225 50% 35%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 40 33% 97%;
+    --destructive-foreground: 240 30% 98%;
 
-    --border: 35 20% 88%;
-    --input: 35 20% 88%;
-    --ring: 140 20% 45%;
+    --border: 250 30% 90%;
+    --input: 250 30% 90%;
+    --ring: 245 58% 51%;
 
     --radius: 1rem;
 
     /* Custom Healer tokens */
-    --sage: 140 20% 45%;
-    --sage-light: 140 25% 85%;
-    --sage-dark: 140 20% 30%;
-    --beige: 35 30% 88%;
-    --beige-warm: 30 35% 92%;
-    --cream: 40 33% 97%;
-    --earth: 30 10% 20%;
-    --earth-soft: 30 8% 45%;
+    --indigo: 245 58% 51%;
+    --indigo-light: 250 50% 85%;
+    --indigo-dark: 245 55% 35%;
+    --purple: 270 45% 60%;
+    --purple-soft: 270 40% 88%;
+    --blue: 220 70% 55%;
+    --blue-soft: 220 60% 90%;
+    --lavender: 250 40% 92%;
+    --slate: 240 20% 15%;
+    --slate-soft: 240 15% 45%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(180deg, hsl(40 33% 97%) 0%, hsl(140 25% 95%) 100%);
-    --gradient-card: linear-gradient(135deg, hsl(40 30% 98%) 0%, hsl(140 20% 96%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(140 25% 85%) 0%, hsl(140 20% 75%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(240 30% 98%) 0%, hsl(250 50% 96%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(250 35% 98%) 0%, hsl(220 50% 96%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(245 58% 51%) 0%, hsl(270 45% 60%) 100%);
 
     /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(30 10% 20% / 0.08);
-    --shadow-card: 0 8px 32px -8px hsl(30 10% 20% / 0.1);
-    --shadow-hover: 0 12px 40px -12px hsl(30 10% 20% / 0.15);
+    --shadow-soft: 0 4px 20px -4px hsl(245 50% 30% / 0.08);
+    --shadow-card: 0 8px 32px -8px hsl(245 50% 30% / 0.1);
+    --shadow-hover: 0 12px 40px -12px hsl(245 50% 30% / 0.18);
 
-    --sidebar-background: 40 33% 97%;
-    --sidebar-foreground: 30 10% 20%;
-    --sidebar-primary: 140 20% 45%;
-    --sidebar-primary-foreground: 40 33% 97%;
-    --sidebar-accent: 140 25% 85%;
-    --sidebar-accent-foreground: 140 20% 30%;
-    --sidebar-border: 35 20% 88%;
-    --sidebar-ring: 140 20% 45%;
+    --sidebar-background: 240 30% 98%;
+    --sidebar-foreground: 240 20% 15%;
+    --sidebar-primary: 245 58% 51%;
+    --sidebar-primary-foreground: 240 30% 98%;
+    --sidebar-accent: 220 60% 90%;
+    --sidebar-accent-foreground: 225 50% 35%;
+    --sidebar-border: 250 30% 90%;
+    --sidebar-ring: 245 58% 51%;
   }
 
   .dark {
-    --background: 30 15% 10%;
-    --foreground: 40 25% 92%;
+    --background: 240 25% 8%;
+    --foreground: 250 30% 92%;
 
-    --card: 30 12% 14%;
-    --card-foreground: 40 25% 92%;
+    --card: 240 22% 12%;
+    --card-foreground: 250 30% 92%;
 
-    --popover: 30 15% 10%;
-    --popover-foreground: 40 25% 92%;
+    --popover: 240 25% 8%;
+    --popover-foreground: 250 30% 92%;
 
-    --primary: 140 25% 55%;
-    --primary-foreground: 30 15% 10%;
+    --primary: 245 60% 65%;
+    --primary-foreground: 240 25% 8%;
 
-    --secondary: 30 12% 18%;
-    --secondary-foreground: 40 25% 92%;
+    --secondary: 240 20% 18%;
+    --secondary-foreground: 250 30% 92%;
 
-    --muted: 30 10% 20%;
-    --muted-foreground: 40 15% 65%;
+    --muted: 240 18% 20%;
+    --muted-foreground: 250 20% 65%;
 
-    --accent: 140 20% 25%;
-    --accent-foreground: 140 25% 80%;
+    --accent: 220 40% 25%;
+    --accent-foreground: 220 60% 80%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 40 25% 92%;
+    --destructive-foreground: 250 30% 92%;
 
-    --border: 30 10% 20%;
-    --input: 30 10% 20%;
-    --ring: 140 25% 55%;
+    --border: 240 18% 20%;
+    --input: 240 18% 20%;
+    --ring: 245 60% 65%;
 
-    --sage: 140 25% 55%;
-    --sage-light: 140 20% 25%;
-    --sage-dark: 140 25% 80%;
-    --beige: 30 12% 18%;
-    --beige-warm: 30 15% 15%;
-    --cream: 30 15% 10%;
-    --earth: 40 25% 92%;
-    --earth-soft: 40 15% 65%;
+    --indigo: 245 60% 65%;
+    --indigo-light: 245 40% 25%;
+    --indigo-dark: 245 60% 80%;
+    --purple: 270 45% 65%;
+    --purple-soft: 270 30% 20%;
+    --blue: 220 70% 60%;
+    --blue-soft: 220 40% 25%;
+    --lavender: 250 20% 18%;
+    --slate: 250 30% 92%;
+    --slate-soft: 250 20% 65%;
   }
 }
 
