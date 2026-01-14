@@ -1,12 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import HeroSection from "@/components/sections/HeroSection";
+import ProblemSection from "@/components/sections/ProblemSection";
+import PhilosophySection from "@/components/sections/PhilosophySection";
+import WhatIsHealerSection from "@/components/sections/WhatIsHealerSection";
+import ProgramsSection from "@/components/sections/ProgramsSection";
+import DifferentiatorSection from "@/components/sections/DifferentiatorSection";
+import FounderSection from "@/components/sections/FounderSection";
+import CTASection from "@/components/sections/CTASection";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      <Header />
+      <main>
+        <HeroSection />
+        <ProblemSection />
+        <section id="philosophy">
+          <PhilosophySection />
+        </section>
+        <WhatIsHealerSection />
+        <section id="programs">
+          <ProgramsSection />
+        </section>
+        <DifferentiatorSection />
+        <section id="about">
+          <FounderSection />
+        </section>
+        <CTASection />
+      </main>
+      <Footer />
     </div>
   );
 };
