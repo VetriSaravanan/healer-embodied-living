@@ -35,12 +35,16 @@ const HeroSection = () => {
           </div>
 
           {/* Hero Image */}
-          <div className="relative lg:justify-self-end">
+          <div className="relative lg:justify-self-end flex items-center justify-center">
             <div className="relative animate-float">
-              <img alt="Serene illustration of embodied healing and wellness" className="w-full max-w-lg rounded-3xl shadow-card" src="/lovable-uploads/e2af7aec-5124-4f88-a83d-0539b7bd7506.jpg" />
+              <img 
+                alt="Programs wheel showing wellness categories" 
+                src={heroImage} 
+                className="w-full max-w-xs sm:max-w-sm md:max-w-md rounded-2xl shadow-card object-contain"
+              />
               {/* Decorative elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 bg-sage-light/50 rounded-full blur-xl" />
-              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-beige/60 rounded-full blur-xl" />
+              <div className="absolute -top-4 -right-4 w-20 h-20 bg-indigo/20 rounded-full blur-xl" />
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-purple/20 rounded-full blur-xl" />
             </div>
           </div>
         </div>
