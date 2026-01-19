@@ -2,34 +2,24 @@ import founderImage from "@/assets/founder-illustration.png";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { cn } from "@/lib/utils";
 import { Quote } from "lucide-react";
-
 const FounderSection = () => {
-  const { ref, isVisible } = useScrollAnimation();
-
-  return (
-    <section className="healer-section relative overflow-hidden" id="about">
+  const {
+    ref,
+    isVisible
+  } = useScrollAnimation();
+  return <section className="healer-section relative overflow-hidden" id="about">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
       <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-gradient-to-l from-lavender/30 to-transparent rounded-full blur-3xl -translate-y-1/2" />
       
-      <div 
-        ref={ref}
-        className={cn(
-          "healer-container relative z-10",
-          isVisible ? "animate-fade-in-slow" : "opacity-0"
-        )}
-      >
+      <div ref={ref} className={cn("healer-container relative z-10", isVisible ? "animate-fade-in-slow" : "opacity-0")}>
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-5 gap-12 lg:gap-16 items-center">
             {/* Image */}
             <div className="md:col-span-2">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-violet/30 to-cyan-soft/30 rounded-3xl blur-3xl scale-95" />
-                <img
-                  src={founderImage}
-                  alt="Mira, Founder of Healer"
-                  className="w-full max-w-xs mx-auto rounded-3xl shadow-glow relative z-10"
-                />
+                <img src={founderImage} alt="Mira, Founder of Healer" className="w-full max-w-xs mx-auto rounded-3xl shadow-glow relative z-10" />
               </div>
             </div>
 
@@ -50,7 +40,8 @@ const FounderSection = () => {
                     Healer was created from lived pain, loss, and years inside the personal growth world.
                   </p>
                   <p className="healer-body">
-                    The personal growth world stops at awareness. Transformation requires emotional and nervous system rewiring.
+                    The personal growth world stops at awareness.
+Transformation requires emotional and nervous system rewiring.
                   </p>
                   <div className="p-6 rounded-2xl bg-gradient-to-br from-violet/10 to-cyan-soft/10 border border-violet/20">
                     <p className="text-lg md:text-xl font-semibold text-foreground">
@@ -73,8 +64,6 @@ const FounderSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default FounderSection;
