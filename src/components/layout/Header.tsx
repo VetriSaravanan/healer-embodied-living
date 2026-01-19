@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Leaf, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,9 +29,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
-              <Leaf className="w-5 h-5 text-primary-foreground" />
-            </div>
+            <img src={logo} alt="Healer Logo" className="w-10 h-10 group-hover:scale-105 transition-transform duration-200" />
             <span className="text-xl font-semibold text-foreground">Healer</span>
           </a>
 
