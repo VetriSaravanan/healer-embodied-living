@@ -61,9 +61,11 @@ const Header = () => {
 
           {/* CTA */}
           <div className="hidden md:block">
-            <Button variant="hero" size="default">
-              Join Waitlist
-            </Button>
+            <a href="https://form.typeform.com/to/Uujm1fxF" target="_blank" rel="noopener noreferrer">
+              <Button variant="hero" size="default">
+                Join Waitlist
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -103,9 +105,11 @@ const Header = () => {
               About
             </a>
             <div className="px-2 pt-2">
-              <Button variant="hero" size="default" className="w-full">
-                Join Waitlist
-              </Button>
+              <a href="https://form.typeform.com/to/Uujm1fxF" target="_blank" rel="noopener noreferrer">
+                <Button variant="hero" size="default" className="w-full">
+                  Join Waitlist
+                </Button>
+              </a>
             </div>
           </nav>
         </div>
