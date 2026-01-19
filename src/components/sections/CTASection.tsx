@@ -42,12 +42,14 @@ const CTASection = () => {
           </div>
 
           <div className="pt-4">
-            <Button variant="hero" size="xl" className="group">
-              <span className="relative z-10 flex items-center gap-2">
-                Join Early Access
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Button>
+            <a href="https://form.typeform.com/to/Uujm1fxF" target="_blank" rel="noopener noreferrer">
+              <Button variant="hero" size="xl" className="group">
+                <span className="relative z-10 flex items-center gap-2">
+                  Join Early Access
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </Button>
+            </a>
           </div>
 
           {/* CTA Image */}

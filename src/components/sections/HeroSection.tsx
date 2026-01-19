@@ -54,9 +54,11 @@ const HeroSection = () => {
               </p>
             </div>
 
-            <Button variant="hero" size="xl" className="group">
-              <span className="relative z-10">Join the Waitlist</span>
-            </Button>
+            <a href="https://form.typeform.com/to/Uujm1fxF" target="_blank" rel="noopener noreferrer">
+              <Button variant="hero" size="xl" className="group">
+                <span className="relative z-10">Join the Waitlist</span>
+              </Button>
+            </a>
 
             {/* Trust badges */}
             <div className="flex items-center gap-6 pt-4">
