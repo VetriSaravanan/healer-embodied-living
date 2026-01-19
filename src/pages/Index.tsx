@@ -8,6 +8,7 @@ import ProgramsSection from "@/components/sections/ProgramsSection";
 import DifferentiatorSection from "@/components/sections/DifferentiatorSection";
 import FounderSection from "@/components/sections/FounderSection";
 import CTASection from "@/components/sections/CTASection";
+import PartnershipSection from "@/components/sections/PartnershipSection";
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
           <ProgramsSection />
         </section>
         <DifferentiatorSection />
+        <PartnershipSection />
         <section id="about">
           <FounderSection />
         </section>
