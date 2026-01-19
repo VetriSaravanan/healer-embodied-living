@@ -28,7 +28,7 @@ const WhatIsHealerSection = () => {
           {/* Image */}
           <div className="relative">
             <div className="relative">
-              <img alt="Healer mobile app interface" className="w-full max-w-sm mx-auto lg:mx-0 lg:ml-auto rounded-3xl shadow-card animate-float object-cover" src="/lovable-uploads/d7ed1105-72bb-4b95-9257-1c73ad192fd5.png" />
+              <img alt="Healer mobile app interface" className="w-full max-w-sm mx-auto lg:mx-0 lg:ml-auto rounded-3xl shadow-card animate-float object-scale-down" src="/lovable-uploads/d7ed1105-72bb-4b95-9257-1c73ad192fd5.png" />
               {/* Decorative glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-sage-light/30 to-transparent rounded-3xl blur-2xl -z-10" />
             </div>
