@@ -1,19 +1,13 @@
 import appImage from "@/assets/app-illustration.png";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { cn } from "@/lib/utils";
-
 const WhatIsHealerSection = () => {
-  const { ref, isVisible } = useScrollAnimation();
-
-  return (
-    <section className="healer-section bg-background">
-      <div 
-        ref={ref}
-        className={cn(
-          "healer-container",
-          isVisible ? "animate-fade-in-slow" : "opacity-0"
-        )}
-      >
+  const {
+    ref,
+    isVisible
+  } = useScrollAnimation();
+  return <section className="healer-section bg-background">
+      <div ref={ref} className={cn("healer-container", isVisible ? "animate-fade-in-slow" : "opacity-0")}>
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div className="space-y-6">
@@ -34,19 +28,13 @@ const WhatIsHealerSection = () => {
           {/* Image */}
           <div className="relative">
             <div className="relative">
-              <img
-                src={appImage}
-                alt="Healer mobile app interface"
-                className="w-full max-w-sm mx-auto lg:mx-0 lg:ml-auto rounded-3xl shadow-card animate-float"
-              />
+              <img alt="Healer mobile app interface" className="w-full max-w-sm mx-auto lg:mx-0 lg:ml-auto rounded-3xl shadow-card animate-float object-cover" src="/lovable-uploads/d7ed1105-72bb-4b95-9257-1c73ad192fd5.png" />
               {/* Decorative glow */}
               <div className="absolute inset-0 bg-gradient-to-br from-sage-light/30 to-transparent rounded-3xl blur-2xl -z-10" />
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default WhatIsHealerSection;
