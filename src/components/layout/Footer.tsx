@@ -3,9 +3,6 @@ import { Leaf } from "lucide-react";
 const footerLinks = [
   { label: "About", href: "#about" },
   { label: "Programs", href: "#programs" },
-  { label: "For Creators", href: "#creators" },
-  { label: "Privacy", href: "#privacy" },
-  { label: "Terms", href: "#terms" },
 ];
 
 const Footer = () => {
