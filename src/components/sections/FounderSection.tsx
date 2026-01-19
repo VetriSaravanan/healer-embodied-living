@@ -50,7 +50,7 @@ const FounderSection = () => {
                     Healer was created from lived pain, loss, and years inside the personal growth world.
                   </p>
                   <p className="healer-body">
-                    Understanding alone didn't translate into living.
+                    The personal growth world stops at awareness. Transformation requires emotional and nervous system rewiring.
                   </p>
                   <div className="p-6 rounded-2xl bg-gradient-to-br from-violet/10 to-cyan-soft/10 border border-violet/20">
                     <p className="text-lg md:text-xl font-semibold text-foreground">
