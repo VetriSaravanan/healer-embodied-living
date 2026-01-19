@@ -1,11 +1,13 @@
 import partnerDstNidhi from "@/assets/partner-dst-nidhi.jpg";
 import partnerIitMadras from "@/assets/partner-iit-madras.png";
 import partnerIitmResearchPark from "@/assets/partner-iitm-research-park.png";
+import partnerVelTech from "@/assets/partner-vel-tech.png";
 
 const partners = [
   { name: "DST NIDHI", logo: partnerDstNidhi },
   { name: "IIT Madras", logo: partnerIitMadras },
   { name: "IITM Research Park", logo: partnerIitmResearchPark },
+  { name: "Vel Tech", logo: partnerVelTech },
 ];
 
 const PartnershipSection = () => {
