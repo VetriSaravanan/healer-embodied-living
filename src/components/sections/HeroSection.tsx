@@ -26,7 +26,7 @@ const HeroSection = () => {
             </h1>
             
             <p className="healer-subheadline max-w-xl">
-              A holistic wellness & longevity app for embodied healing, clarity, and aligned living.
+              Access world-class life coaching content and an emotionally intelligent AI companion to transform every area of your wheel of life.
             </p>
 
             <Button variant="hero" size="xl">
