@@ -1,0 +1,2258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Healer — Wellness & Longevity App for Embodied Healing</title>
+  <meta name="description" content="A holistic wellness & longevity app for embodied healing, clarity, and aligned living. Learn how to live healed, not just think healed." />
+  <meta name="author" content="Healer" />
+  <meta name="keywords" content="wellness app, healing, longevity, nervous system, emotional healing, life purpose, conscious living" />
+  <meta property="og:title" content="Healer — Wellness & Longevity App" />
+  <meta property="og:description" content="A holistic wellness app for embodied healing, clarity, and aligned living." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://healer.app" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <style>
+    /* ====================== CSS RESET & BASE ====================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* Healer Premium Palette */
+      --background: 240 20% 98%;
+      --foreground: 240 40% 15%;
+      --card: 250 25% 99%;
+      --card-foreground: 240 40% 15%;
+      --primary: 262 68% 50%;
+      --primary-foreground: 0 0% 100%;
+      --secondary: 266 60% 88%;
+      --secondary-foreground: 262 60% 30%;
+      --muted: 240 20% 92%;
+      --muted-foreground: 240 15% 40%;
+      --accent: 195 93% 77%;
+      --accent-foreground: 220 60% 25%;
+      --border: 250 20% 90%;
+      --ring: 262 68% 50%;
+      --radius: 1rem;
+      
+      /* Custom Healer tokens */
+      --violet: 262 68% 50%;
+      --violet-deep: 263 65% 43%;
+      --violet-bright: 274 89% 58%;
+      --blue-ocean: 205 94% 54%;
+      --blue-deep: 224 80% 37%;
+      --blue-sky: 214 80% 69%;
+      --cyan-soft: 195 93% 77%;
+      --lavender: 266 60% 88%;
+      --lavender-muted: 245 15% 81%;
+      --gray-soft: 240 20% 92%;
+
+      /* Gradients */
+      --gradient-hero: linear-gradient(180deg, hsl(240 20% 98%) 0%, hsl(266 60% 96%) 50%, hsl(195 60% 96%) 100%);
+      --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(266 40% 98%) 100%);
+      --gradient-accent: linear-gradient(135deg, hsl(262 68% 50%) 0%, hsl(274 89% 58%) 50%, hsl(205 94% 54%) 100%);
+      --gradient-text: linear-gradient(135deg, hsl(262 68% 50%) 0%, hsl(205 94% 54%) 100%);
+
+      /* Shadows */
+      --shadow-soft: 0 4px 24px -4px hsl(262 50% 30% / 0.08);
+      --shadow-card: 0 8px 40px -8px hsl(262 50% 30% / 0.12);
+      --shadow-hover: 0 16px 48px -12px hsl(262 50% 30% / 0.2);
+      --shadow-glow: 0 0 60px -10px hsl(262 68% 50% / 0.3);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: hsl(var(--background));
+      color: hsl(var(--foreground));
+      font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* ====================== UTILITY CLASSES ====================== */
+    .healer-container {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .healer-container {
+        padding: 0 2rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .healer-container {
+        padding: 0 3rem;
+      }
+    }
+
+    .healer-section {
+      padding: 6rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .healer-section {
+        padding: 8rem 0;
+      }
+    }
+
+    .healer-card {
+      background: var(--gradient-card);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      transition: all 0.5s ease;
+      border: 1px solid hsl(var(--border) / 0.5);
+      box-shadow: var(--shadow-card);
+    }
+
+    .healer-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+      border-color: hsl(var(--primary) / 0.2);
+    }
+
+    .healer-headline {
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: hsl(var(--foreground));
+    }
+
+    @media (min-width: 768px) {
+      .healer-headline {
+        font-size: 3rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .healer-headline {
+        font-size: 3.75rem;
+      }
+    }
+
+    .healer-subheadline {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: hsl(var(--muted-foreground));
+      line-height: 1.7;
+    }
+
+    @media (min-width: 768px) {
+      .healer-subheadline {
+        font-size: 1.5rem;
+      }
+    }
+
+    .healer-title {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: hsl(var(--foreground));
+      margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .healer-title {
+        font-size: 2.25rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .healer-title {
+        font-size: 3rem;
+      }
+    }
+
+    .healer-body {
+      font-size: 1.125rem;
+      color: hsl(var(--muted-foreground));
+      line-height: 1.7;
+    }
+
+    @media (min-width: 768px) {
+      .healer-body {
+        font-size: 1.25rem;
+      }
+    }
+
+    .gradient-text {
+      background: var(--gradient-text);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .glass-card {
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: hsl(0 0% 100% / 0.7);
+      border: 1px solid hsl(0 0% 100% / 0.2);
+    }
+
+    .shadow-soft {
+      box-shadow: var(--shadow-soft);
+    }
+
+    .shadow-card {
+      box-shadow: var(--shadow-card);
+    }
+
+    .shadow-glow {
+      box-shadow: var(--shadow-glow);
+    }
+
+    .gradient-hero {
+      background: var(--gradient-hero);
+    }
+
+    .hover-lift {
+      transition: all 0.3s ease;
+    }
+
+    .hover-lift:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* ====================== BUTTONS ====================== */
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: hsl(var(--primary-foreground));
+      background: var(--gradient-accent);
+      border-radius: 9999px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px hsl(var(--primary) / 0.4);
+    }
+
+    .btn-hero:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 25px hsl(var(--primary) / 0.5);
+    }
+
+    .btn-hero-sm {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+    }
+
+    /* ====================== ANIMATIONS ====================== */
+    @keyframes blob-float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -30px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse-soft {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.6; }
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      animation: blob-float 20s ease-in-out infinite;
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-fade-in {
+      animation: fade-in 1s ease-out forwards;
+    }
+
+    .animate-pulse-soft {
+      animation: pulse-soft 4s ease-in-out infinite;
+    }
+
+    /* Scroll animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger-children > * {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .stagger-children.visible > *:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(5) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+    .stagger-children.visible > *:nth-child(6) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
+
+    /* ====================== HEADER ====================== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      transition: all 0.5s ease;
+      padding: 1.25rem 0;
+    }
+
+    .header.scrolled {
+      background: hsl(var(--background) / 0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-soft);
+      padding: 0.75rem 0;
+      border-bottom: 1px solid hsl(var(--border) / 0.5);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo img {
+      width: 2.75rem;
+      height: 2.75rem;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover img {
+      transform: scale(1.05);
+    }
+
+    .logo span {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: hsl(var(--foreground));
+      letter-spacing: -0.02em;
+    }
+
+    .nav-desktop {
+      display: none;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .nav-desktop {
+        display: flex;
+      }
+    }
+
+    .nav-link {
+      color: hsl(var(--muted-foreground));
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: hsl(var(--violet));
+    }
+
+    .header-cta {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .header-cta {
+        display: block;
+      }
+    }
+
+    .mobile-menu-btn {
+      display: block;
+      padding: 0.5rem;
+      background: transparent;
+      color: hsl(var(--foreground));
+      border-radius: 0.75rem;
+      transition: background 0.3s ease;
+    }
+
+    .mobile-menu-btn:hover {
+      background: hsl(var(--secondary) / 0.5);
+    }
+
+    @media (min-width: 768px) {
+      .mobile-menu-btn {
+        display: none;
+      }
+    }
+
+    .mobile-menu {
+      display: none;
+      margin-top: 1.5rem;
+      padding: 1rem 0.5rem;
+      background: hsl(var(--card) / 0.8);
+      backdrop-filter: blur(16px);
+      border-radius: 1rem;
+      border: 1px solid hsl(var(--border) / 0.5);
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      .mobile-menu {
+        display: none !important;
+      }
+    }
+
+    .mobile-nav-link {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: hsl(var(--muted-foreground));
+      font-weight: 500;
+      border-radius: 0.75rem;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-nav-link:hover {
+      color: hsl(var(--violet));
+      background: hsl(var(--secondary) / 0.5);
+    }
+
+    /* ====================== HERO SECTION ====================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--gradient-hero);
+    }
+
+    .hero-blobs {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      padding-top: 7rem;
+      padding-bottom: 5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .trust-badges {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding-top: 1rem;
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .trust-badge-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+
+    .trust-badge span {
+      font-size: 0.875rem;
+      color: hsl(var(--muted-foreground));
+    }
+
+    .trust-divider {
+      width: 1px;
+      height: 1rem;
+      background: hsl(var(--border));
+    }
+
+    .hero-image-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-image-container {
+        justify-content: flex-end;
+      }
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+    }
+
+    .hero-image-glow {
+      position: absolute;
+      inset: 0;
+      border-radius: 1.5rem;
+      filter: blur(60px);
+      opacity: 0.4;
+      background: linear-gradient(to bottom right, hsl(var(--violet)), hsl(var(--cyan-soft)));
+      transform: scale(0.95);
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 24rem;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-glow);
+      object-fit: contain;
+      position: relative;
+    }
+
+    .hero-decorative {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(32px);
+    }
+
+    /* ====================== PROBLEM SECTION ====================== */
+    .problem-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .problem-bg-gradient {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(to right, hsl(var(--lavender) / 0.3), transparent);
+      border-radius: 50%;
+      filter: blur(60px);
+      transform: translateY(-50%);
+    }
+
+    .problem-grid {
+      display: grid;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .problem-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+      }
+    }
+
+    .problem-image-container {
+      order: 2;
+    }
+
+    @media (min-width: 1024px) {
+      .problem-image-container {
+        order: 1;
+      }
+    }
+
+    .problem-image-wrapper {
+      position: relative;
+    }
+
+    .problem-image-glow {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, hsl(var(--violet) / 0.2), hsl(var(--cyan-soft) / 0.2));
+      border-radius: 1.5rem;
+      filter: blur(60px);
+      transform: scale(0.95);
+    }
+
+    .problem-image {
+      width: 100%;
+      max-width: 32rem;
+      margin: 0 auto;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      z-index: 10;
+    }
+
+    .problem-content {
+      order: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    @media (min-width: 1024px) {
+      .problem-content {
+        order: 2;
+      }
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .badge-rose {
+      background: hsl(350 80% 95%);
+      color: hsl(350 80% 45%);
+    }
+
+    .badge-violet {
+      background: hsl(var(--violet) / 0.1);
+      color: hsl(var(--violet));
+    }
+
+    .badge-cyan {
+      background: hsl(var(--cyan-soft) / 0.2);
+      color: hsl(var(--blue-ocean));
+    }
+
+    .highlight-box {
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background: linear-gradient(to bottom right, hsl(var(--violet) / 0.1), hsl(var(--cyan-soft) / 0.1));
+      border: 1px solid hsl(var(--violet) / 0.2);
+    }
+
+    .highlight-box p {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: hsl(var(--foreground));
+    }
+
+    @media (min-width: 768px) {
+      .highlight-box p {
+        font-size: 1.25rem;
+      }
+    }
+
+    /* ====================== PHILOSOPHY SECTION ====================== */
+    .philosophy-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .philosophy-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--secondary) / 0.2), hsl(var(--background)));
+    }
+
+    .philosophy-radial {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, hsl(var(--violet) / 0.1), transparent);
+      border-radius: 50%;
+      filter: blur(60px);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .beliefs-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .beliefs-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .belief-card {
+      text-align: center;
+    }
+
+    .belief-icon {
+      width: 5rem;
+      height: 5rem;
+      margin: 0 auto 2rem;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.5s ease;
+    }
+
+    .belief-card:hover .belief-icon {
+      transform: scale(1.1);
+      box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    }
+
+    .belief-icon i {
+      width: 2.5rem;
+      height: 2.5rem;
+      color: white;
+    }
+
+    .belief-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: hsl(var(--foreground));
+      line-height: 1.5;
+    }
+
+    /* ====================== WHAT IS HEALER SECTION ====================== */
+    .what-is-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .what-is-bg-gradient {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 600px;
+      height: 600px;
+      background: linear-gradient(to top left, hsl(var(--cyan-soft) / 0.2), transparent);
+      border-radius: 50%;
+      filter: blur(60px);
+    }
+
+    .what-is-grid {
+      display: grid;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .what-is-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+      }
+    }
+
+    .benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      background: linear-gradient(to right, hsl(var(--secondary) / 0.5), transparent);
+    }
+
+    .benefit-check {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 50%;
+      background: var(--gradient-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 0.125rem;
+    }
+
+    .benefit-check i {
+      width: 1rem;
+      height: 1rem;
+      color: white;
+    }
+
+    .benefit-text {
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: hsl(var(--foreground));
+    }
+
+    .app-image-container {
+      position: relative;
+    }
+
+    .app-image-glow {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, hsl(var(--violet) / 0.3), hsl(var(--blue-ocean) / 0.3));
+      border-radius: 1.5rem;
+      filter: blur(60px);
+      transform: scale(0.9);
+      opacity: 0.5;
+    }
+
+    .app-image {
+      width: 100%;
+      max-width: 24rem;
+      margin: 0 auto;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-glow);
+      position: relative;
+      z-index: 10;
+    }
+
+    @media (min-width: 1024px) {
+      .app-image {
+        margin: 0 0 0 auto;
+      }
+    }
+
+    .floating-badge {
+      position: absolute;
+      top: -1rem;
+      left: -1rem;
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-card);
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .floating-badge {
+        display: block;
+      }
+    }
+
+    .floating-badge-content {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .floating-badge-dot {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+
+    .floating-badge span {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: hsl(var(--foreground));
+    }
+
+    /* ====================== PROGRAMS SECTION ====================== */
+    .programs-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .programs-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--secondary) / 0.2), hsl(var(--background)));
+    }
+
+    .programs-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .programs-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .program-card {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      cursor: default;
+    }
+
+    .program-icon {
+      width: 4rem;
+      height: 4rem;
+      flex-shrink: 0;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.5s ease;
+    }
+
+    .program-card:hover .program-icon {
+      transform: scale(1.1);
+      box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    }
+
+    .program-icon i {
+      width: 2rem;
+      height: 2rem;
+      color: white;
+    }
+
+    .program-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: hsl(var(--foreground));
+      line-height: 1.4;
+    }
+
+    /* ====================== AI COMPANION SECTION ====================== */
+    .ai-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ai-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, hsl(var(--secondary) / 0.3), hsl(var(--background)), hsl(var(--accent) / 0.2));
+    }
+
+    .ai-grid {
+      display: grid;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .ai-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .ai-image-container {
+      position: relative;
+    }
+
+    .ai-image-glow {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, hsl(var(--violet) / 0.3), hsl(var(--cyan-soft) / 0.3));
+      border-radius: 1.5rem;
+      filter: blur(60px);
+      transform: scale(0.95);
+      opacity: 0.6;
+    }
+
+    .ai-image-wrapper {
+      position: relative;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-glow);
+      border: 1px solid hsl(var(--border) / 0.5);
+    }
+
+    .ai-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .ai-image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, hsl(var(--violet) / 0.3), transparent, transparent);
+    }
+
+    .ai-floating-badge {
+      position: absolute;
+      bottom: -1rem;
+      right: -1rem;
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-hover);
+    }
+
+    @media (min-width: 768px) {
+      .ai-floating-badge {
+        bottom: 2rem;
+        right: -2rem;
+      }
+    }
+
+    .ai-badge-content {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .ai-badge-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.75rem;
+      background: var(--gradient-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ai-badge-icon i {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: white;
+    }
+
+    .ai-badge-text p:first-child {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: hsl(var(--foreground));
+    }
+
+    .ai-badge-text p:last-child {
+      font-size: 0.75rem;
+      color: hsl(var(--muted-foreground));
+    }
+
+    .features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      position: relative;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background: hsl(var(--card) / 0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid hsl(var(--border) / 0.5);
+      transition: all 0.5s ease;
+    }
+
+    .feature-card:hover {
+      border-color: hsl(var(--violet) / 0.3);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .feature-content {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .feature-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      flex-shrink: 0;
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .feature-icon i {
+      width: 1.75rem;
+      height: 1.75rem;
+      color: white;
+    }
+
+    .feature-text h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: hsl(var(--foreground));
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-text p {
+      color: hsl(var(--muted-foreground));
+      line-height: 1.6;
+    }
+
+    /* ====================== DIFFERENTIATOR SECTION ====================== */
+    .diff-section {
+      background: hsl(var(--background));
+    }
+
+    .diff-grid {
+      display: grid;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .diff-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .diff-image-container {
+      order: 2;
+    }
+
+    @media (min-width: 1024px) {
+      .diff-image-container {
+        order: 1;
+      }
+    }
+
+    .diff-image {
+      width: 100%;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .diff-content {
+      order: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    @media (min-width: 1024px) {
+      .diff-content {
+        order: 2;
+      }
+    }
+
+    .diff-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .diff-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.25rem;
+      color: hsl(var(--muted-foreground));
+      font-weight: 300;
+    }
+
+    .diff-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: hsl(var(--primary));
+      flex-shrink: 0;
+    }
+
+    /* ====================== PARTNERSHIP SECTION ====================== */
+    .partners-section {
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .partners-section {
+        padding: 7rem 0;
+      }
+    }
+
+    .partners-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--secondary) / 0.2), hsl(var(--background)));
+    }
+
+    .partners-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .partners-grid {
+        gap: 2.5rem;
+      }
+    }
+
+    .partner-card {
+      position: relative;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background: hsl(var(--card) / 0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid hsl(var(--border) / 0.5);
+      transition: all 0.5s ease;
+    }
+
+    @media (min-width: 768px) {
+      .partner-card {
+        padding: 2rem;
+      }
+    }
+
+    .partner-card:hover {
+      border-color: hsl(var(--violet) / 0.3);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .partner-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, hsl(var(--violet) / 0.05), hsl(var(--cyan-soft) / 0.05));
+      opacity: 0;
+      border-radius: 1rem;
+      transition: opacity 0.5s ease;
+    }
+
+    .partner-card:hover::before {
+      opacity: 1;
+    }
+
+    .partner-logo {
+      height: 3.5rem;
+      width: auto;
+      object-fit: contain;
+      position: relative;
+      z-index: 10;
+      filter: grayscale(100%);
+      transition: filter 0.5s ease;
+    }
+
+    @media (min-width: 768px) {
+      .partner-logo {
+        height: 5rem;
+      }
+    }
+
+    .partner-card:hover .partner-logo {
+      filter: grayscale(0%);
+    }
+
+    /* ====================== FOUNDER SECTION ====================== */
+    .founder-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .founder-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--secondary) / 0.2), hsl(var(--background)));
+    }
+
+    .founder-bg-gradient {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 600px;
+      height: 600px;
+      background: linear-gradient(to left, hsl(var(--lavender) / 0.3), transparent);
+      border-radius: 50%;
+      filter: blur(60px);
+      transform: translateY(-50%);
+    }
+
+    .founder-wrapper {
+      max-width: 64rem;
+      margin: 0 auto;
+    }
+
+    .founder-grid {
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .founder-grid {
+        grid-template-columns: 2fr 3fr;
+        gap: 4rem;
+      }
+    }
+
+    .founder-image-container {
+      position: relative;
+    }
+
+    .founder-image-glow {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, hsl(var(--violet) / 0.3), hsl(var(--cyan-soft) / 0.3));
+      border-radius: 1.5rem;
+      filter: blur(60px);
+      transform: scale(0.95);
+    }
+
+    .founder-image {
+      width: 100%;
+      max-width: 20rem;
+      margin: 0 auto;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-glow);
+      position: relative;
+      z-index: 10;
+    }
+
+    .founder-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .quote-container {
+      position: relative;
+    }
+
+    .quote-icon {
+      position: absolute;
+      top: -0.5rem;
+      left: -0.5rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      color: hsl(var(--violet) / 0.2);
+    }
+
+    .quote-content {
+      padding-left: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .founder-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 1rem;
+    }
+
+    .founder-avatar {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: var(--gradient-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+    }
+
+    .founder-name {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: hsl(var(--foreground));
+    }
+
+    .founder-role {
+      font-size: 0.875rem;
+      color: hsl(var(--muted-foreground));
+    }
+
+    /* ====================== CTA SECTION ====================== */
+    .cta-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--violet) / 0.05), hsl(var(--secondary) / 0.3));
+    }
+
+    .cta-content {
+      max-width: 56rem;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .cta-title {
+      font-size: 2.25rem;
+    }
+
+    @media (min-width: 768px) {
+      .cta-title {
+        font-size: 3rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .cta-title {
+        font-size: 3.75rem;
+      }
+    }
+
+    .cta-text {
+      max-width: 42rem;
+      margin: 0 auto;
+    }
+
+    .cta-image-container {
+      padding-top: 3rem;
+      position: relative;
+    }
+
+    .cta-image-glow {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, hsl(var(--violet) / 0.2), hsl(var(--cyan-soft) / 0.2));
+      border-radius: 1.5rem;
+      filter: blur(60px);
+      transform: scale(0.95);
+    }
+
+    .cta-image {
+      width: 100%;
+      max-width: 48rem;
+      margin: 0 auto;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-glow);
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ====================== FOOTER ====================== */
+    .footer {
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid hsl(var(--border) / 0.5);
+    }
+
+    .footer-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, hsl(var(--secondary) / 0.3), hsl(var(--background)));
+    }
+
+    .footer-content {
+      position: relative;
+      z-index: 10;
+      padding: 4rem 0;
+    }
+
+    .footer-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-main {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-brand {
+        align-items: flex-start;
+      }
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .footer-logo img {
+      height: 3rem;
+      width: auto;
+    }
+
+    .footer-logo span {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: hsl(var(--foreground));
+    }
+
+    .footer-tagline {
+      color: hsl(var(--muted-foreground));
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .footer-link {
+      color: hsl(var(--muted-foreground));
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: hsl(var(--violet));
+    }
+
+    .footer-bottom {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid hsl(var(--border) / 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    .footer-copyright {
+      font-size: 0.875rem;
+      color: hsl(var(--muted-foreground));
+    }
+
+    .footer-made-with {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.875rem;
+      color: hsl(var(--muted-foreground));
+    }
+
+    .footer-made-with svg {
+      width: 1rem;
+      height: 1rem;
+      color: #f43f5e;
+      fill: #f43f5e;
+    }
+
+    /* ====================== GRADIENT BACKGROUNDS ====================== */
+    .bg-gradient-violet { background: linear-gradient(135deg, hsl(262 68% 50%), hsl(274 89% 58%)); }
+    .bg-gradient-blue { background: linear-gradient(135deg, hsl(224 80% 37%), hsl(205 94% 54%)); }
+    .bg-gradient-pink { background: linear-gradient(135deg, #ec4899, #f43f5e); }
+    .bg-gradient-green { background: linear-gradient(135deg, #22c55e, #10b981); }
+    .bg-gradient-amber { background: linear-gradient(135deg, #f59e0b, #f97316); }
+    .bg-gradient-purple { background: linear-gradient(135deg, hsl(274 89% 58%), #9333ea); }
+  </style>
+</head>
+<body>
+  <!-- ====================== HEADER ====================== -->
+  <header class="header" id="header">
+    <div class="healer-container">
+      <div class="header-content">
+        <a href="#" class="logo">
+          <img src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/d7ed1105-72bb-4b95-9257-1c73ad192fd5.png" alt="Healer Logo" style="border-radius: 8px;">
+          <span>Healer</span>
+        </a>
+
+        <nav class="nav-desktop">
+          <a href="#philosophy" class="nav-link">Philosophy</a>
+          <a href="#programs" class="nav-link">Programs</a>
+          <a href="#about" class="nav-link">About</a>
+        </nav>
+
+        <div class="header-cta">
+          <a href="https://form.typeform.com/to/Uujm1fxF" target="_blank" rel="noopener noreferrer">
+            <button class="btn-hero btn-hero-sm">Join Waitlist</button>
+          </a>
+        </div>
+
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+          <i data-lucide="menu" id="menuIcon"></i>
+        </button>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#philosophy" class="mobile-nav-link">Philosophy</a>
+        <a href="#programs" class="mobile-nav-link">Programs</a>
+        <a href="#about" class="mobile-nav-link">About</a>
+        <div style="padding: 0.5rem;">
+          <a href="https://form.typeform.com/to/Uujm1fxF" target="_blank" rel="noopener noreferrer">
+            <button class="btn-hero" style="width: 100%;">Join Waitlist</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ====================== HERO SECTION ====================== -->
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-blobs">
+        <div class="blob" style="top: 5rem; left: 2.5rem; width: 500px; height: 500px; opacity: 0.3; background: linear-gradient(135deg, hsl(262 68% 50% / 0.3), hsl(195 93% 77% / 0.3));"></div>
+        <div class="blob" style="bottom: 5rem; right: 2.5rem; width: 600px; height: 600px; opacity: 0.2; background: linear-gradient(135deg, hsl(274 89% 58% / 0.3), hsl(205 94% 54% / 0.3)); animation-delay: -7s;"></div>
+        <div class="blob" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; opacity: 0.1; background: linear-gradient(135deg, hsl(262 68% 50% / 0.2), hsl(266 60% 88% / 0.2)); animation-delay: -14s;"></div>
+      </div>
+
+      <div class="healer-container hero-content animate-on-scroll">
+        <div class="hero-grid">
+          <div class="hero-text">
+            <div>
+              <h1 class="healer-headline">
+                Healing isn't fixing yourself.
+                <span class="gradient-text" style="display: block; margin-top: 0.75rem;">It's learning how to live.</span>
+              </h1>
+              <p class="healer-subheadline" style="max-width: 36rem; margin-top: 1.5rem;">
+                Access world-class life coaching content and an emotionally intelligent AI companion to transform every area of your wheel of life.
+              </p>
+            </div>
+
+            <a href="https://form.typeform.com/to/Uujm1fxF" target="_blank" rel="noopener noreferrer">
+              <button class="btn-hero">Join the Waitlist</button>
+            </a>
+
+            <div class="trust-badges">
+              <div class="trust-badge">
+                <div class="trust-badge-dot"></div>
+                <span>1000+ on waitlist</span>
+              </div>
+              <div class="trust-divider"></div>
+              <span style="font-size: 0.875rem; color: hsl(var(--muted-foreground));">Launching Soon</span>
+            </div>
+          </div>
+
+          <div class="hero-image-container">
+            <div class="hero-image-wrapper">
+              <div class="hero-image-glow"></div>
+              <div class="animate-float" style="position: relative;">
+                <img 
+                  src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/d7ed1105-72bb-4b95-9257-1c73ad192fd5.png" 
+                  alt="Programs wheel showing wellness categories" 
+                  class="hero-image"
+                >
+                <div class="hero-decorative" style="top: -1.5rem; right: -1.5rem; width: 6rem; height: 6rem; background: linear-gradient(to bottom right, hsl(var(--violet) / 0.3), hsl(274 89% 58% / 0.3));"></div>
+                <div class="hero-decorative" style="bottom: -1.5rem; left: -1.5rem; width: 8rem; height: 8rem; background: linear-gradient(to bottom right, hsl(var(--cyan-soft) / 0.4), hsl(var(--blue-ocean) / 0.3));"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== PROBLEM SECTION ====================== -->
+    <section class="problem-section healer-section">
+      <div style="position: absolute; inset: 0; background: hsl(var(--background));"></div>
+      <div class="problem-bg-gradient"></div>
+
+      <div class="healer-container animate-on-scroll" style="position: relative; z-index: 10;">
+        <div class="problem-grid">
+          <div class="problem-image-container">
+            <div class="problem-image-wrapper">
+              <div class="problem-image-glow"></div>
+              <img 
+                src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/e2af7aec-5124-4f88-a83d-0539b7bd7506.jpg" 
+                alt="Illustration of information overload in self-help" 
+                class="problem-image"
+              >
+            </div>
+          </div>
+
+          <div class="problem-content">
+            <span class="badge badge-rose">The Problem</span>
+            <h2 class="healer-title">
+              Why healing feels <span class="gradient-text">exhausting</span> today
+            </h2>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+              <p class="healer-body">
+                People have read the books, watched the videos, and tried mindset work.
+              </p>
+              <p class="healer-body">
+                Yet healing feels like another task, another identity, another loop.
+              </p>
+              <div class="highlight-box">
+                <p>Most platforms teach what to think or what to fix — not how to live healed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== PHILOSOPHY SECTION ====================== -->
+    <section class="philosophy-section healer-section" id="philosophy">
+      <div class="philosophy-bg"></div>
+      <div class="philosophy-radial"></div>
+
+      <div class="healer-container" style="position: relative; z-index: 10;">
+        <div class="section-header animate-on-scroll">
+          <span class="badge badge-violet" style="margin-bottom: 1.5rem;">Our Philosophy</span>
+          <h2 class="healer-title">
+            Healing doesn't end. <span class="gradient-text">It integrates.</span>
+          </h2>
+        </div>
+
+        <div class="beliefs-grid stagger-children">
+          <div class="healer-card belief-card">
+            <div class="belief-icon bg-gradient-violet">
+              <i data-lucide="sparkles"></i>
+            </div>
+            <p class="belief-title">Your outer reality reflects inner patterns</p>
+          </div>
+          <div class="healer-card belief-card">
+            <div class="belief-icon bg-gradient-blue">
+              <i data-lucide="eye"></i>
+            </div>
+            <p class="belief-title">Awareness without embodiment keeps you stuck</p>
+          </div>
+          <div class="healer-card belief-card">
+            <div class="belief-icon bg-gradient-pink">
+              <i data-lucide="shield"></i>
+            </div>
+            <p class="belief-title">You don't need fixing — you need safety</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== WHAT IS HEALER SECTION ====================== -->
+    <section class="what-is-section healer-section">
+      <div style="position: absolute; inset: 0; background: hsl(var(--background));"></div>
+      <div class="what-is-bg-gradient"></div>
+
+      <div class="healer-container animate-on-scroll" style="position: relative; z-index: 10;">
+        <div class="what-is-grid">
+          <div style="display: flex; flex-direction: column; gap: 2rem;">
+            <span class="badge badge-violet" style="display: inline-flex; align-items: center; gap: 0.5rem; width: fit-content;">
+              <i data-lucide="sparkles" style="width: 1rem; height: 1rem;"></i>
+              The Solution
+            </span>
+            <h2 class="healer-title">
+              A new category of <span class="gradient-text">wellness app</span>
+            </h2>
+            <div class="benefits-list">
+              <div class="benefit-item">
+                <div class="benefit-check">
+                  <i data-lucide="check"></i>
+                </div>
+                <p class="benefit-text">Subscription-based wellness & longevity app</p>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-check">
+                  <i data-lucide="check"></i>
+                </div>
+                <p class="benefit-text">Multiple programs for real-world integration</p>
+              </div>
+              <div class="benefit-item">
+                <div class="benefit-check">
+                  <i data-lucide="check"></i>
+                </div>
+                <p class="benefit-text">No content bingeing — just embodied living</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-image-container">
+            <div class="app-image-glow"></div>
+            <img 
+              src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/d7ed1105-72bb-4b95-9257-1c73ad192fd5.png" 
+              alt="Healer mobile app interface" 
+              class="app-image animate-float"
+            >
+            <div class="floating-badge glass-card">
+              <div class="floating-badge-content">
+                <div class="floating-badge-dot"></div>
+                <span>Live Now</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== PROGRAMS SECTION ====================== -->
+    <section class="programs-section healer-section" id="programs">
+      <div class="programs-bg"></div>
+      <div class="blob" style="top: 0; left: 0; width: 500px; height: 500px; background: linear-gradient(to bottom right, hsl(var(--cyan-soft) / 0.2), transparent);"></div>
+      <div class="blob" style="bottom: 0; right: 0; width: 500px; height: 500px; background: linear-gradient(to top left, hsl(var(--violet) / 0.2), transparent);"></div>
+
+      <div class="healer-container" style="position: relative; z-index: 10;">
+        <div class="section-header animate-on-scroll">
+          <span class="badge badge-cyan" style="margin-bottom: 1.5rem;">Programs</span>
+          <h2 class="healer-title">
+            What you'll explore inside <span class="gradient-text">Healer</span>
+          </h2>
+        </div>
+
+        <div class="programs-grid stagger-children">
+          <div class="healer-card program-card">
+            <div class="program-icon bg-gradient-violet">
+              <i data-lucide="compass"></i>
+            </div>
+            <p class="program-title">Life Purpose & Inner Clarity</p>
+          </div>
+          <div class="healer-card program-card">
+            <div class="program-icon bg-gradient-blue">
+              <i data-lucide="briefcase"></i>
+            </div>
+            <p class="program-title">Career & World's Highest-Paid Skills</p>
+          </div>
+          <div class="healer-card program-card">
+            <div class="program-icon bg-gradient-pink">
+              <i data-lucide="heart"></i>
+            </div>
+            <p class="program-title">Emotional Healing & Nervous System</p>
+          </div>
+          <div class="healer-card program-card">
+            <div class="program-icon bg-gradient-green">
+              <i data-lucide="leaf"></i>
+            </div>
+            <p class="program-title">Health & Longevity</p>
+          </div>
+          <div class="healer-card program-card">
+            <div class="program-icon bg-gradient-amber">
+              <i data-lucide="lightbulb"></i>
+            </div>
+            <p class="program-title">Conscious Entrepreneurship</p>
+          </div>
+          <div class="healer-card program-card">
+            <div class="program-icon bg-gradient-purple">
+              <i data-lucide="book-open"></i>
+            </div>
+            <p class="program-title">Book Publishing & Expression</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== AI COMPANION SECTION ====================== -->
+    <section class="ai-section healer-section">
+      <div class="ai-bg"></div>
+      <div class="blob" style="top: 0; right: 0; width: 600px; height: 600px; background: linear-gradient(to bottom left, hsl(var(--violet) / 0.1), transparent);"></div>
+      <div class="blob" style="bottom: 0; left: 0; width: 400px; height: 400px; background: linear-gradient(to top right, hsl(var(--cyan-soft) / 0.2), transparent);"></div>
+
+      <div class="healer-container" style="position: relative; z-index: 10;">
+        <div class="section-header animate-on-scroll">
+          <span class="badge badge-violet" style="margin-bottom: 1.5rem;">AI Companion</span>
+          <h2 class="healer-title">
+            Meet <span class="gradient-text">Riyan</span> — Your AI Companion
+          </h2>
+          <p style="color: hsl(var(--muted-foreground)); max-width: 42rem; margin: 1rem auto 0; font-size: 1.125rem;">
+            An emotionally intelligent AI that walks with you through life's real moments
+          </p>
+        </div>
+
+        <div class="ai-grid">
+          <div class="ai-image-container animate-on-scroll">
+            <div class="ai-image-glow"></div>
+            <div class="ai-image-wrapper">
+              <img 
+                src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/f1f4d59d-b16e-4a11-9c6d-5bbf44aeec52.jpg" 
+                alt="AI Companion Riyan - Transformation through AI Life Coaching" 
+                class="ai-image"
+              >
+              <div class="ai-image-overlay"></div>
+            </div>
+            <div class="ai-floating-badge glass-card">
+              <div class="ai-badge-content">
+                <div class="ai-badge-icon">
+                  <i data-lucide="heart"></i>
+                </div>
+                <div class="ai-badge-text">
+                  <p>Always Available</p>
+                  <p>24/7 Support</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="features-list stagger-children">
+            <div class="feature-card">
+              <div class="feature-content">
+                <div class="feature-icon bg-gradient-pink">
+                  <i data-lucide="heart"></i>
+                </div>
+                <div class="feature-text">
+                  <h3>A life coach that's always there</h3>
+                  <p>When life feels confusing, overwhelming, or heavy, this AI is there to listen, guide, and support you — anytime you need it.</p>
+                </div>
+              </div>
+            </div>
+            <div class="feature-card">
+              <div class="feature-content">
+                <div class="feature-icon bg-gradient-amber">
+                  <i data-lucide="lightbulb"></i>
+                </div>
+                <div class="feature-text">
+                  <h3>Helps you through real moments, not just theory</h3>
+                  <p>Arguments, stress, self-doubt, money worries, grief — it helps you think clearly and respond better in real situations as they happen.</p>
+                </div>
+              </div>
+            </div>
+            <div class="feature-card">
+              <div class="feature-content">
+                <div class="feature-icon bg-gradient-violet">
+                  <i data-lucide="rocket"></i>
+                </div>
+                <div class="feature-text">
+                  <h3>Turns knowing into doing</h3>
+                  <p>It helps you apply what you learn — what to say, what to choose, and what to do next — so growth actually shows up in daily life.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== DIFFERENTIATOR SECTION ====================== -->
+    <section class="diff-section healer-section">
+      <div class="healer-container animate-on-scroll">
+        <div class="diff-grid">
+          <div class="diff-image-container">
+            <img 
+              src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/e2af7aec-5124-4f88-a83d-0539b7bd7506.jpg" 
+              alt="Contrast between chaos and calm grounded space" 
+              class="diff-image"
+            >
+          </div>
+
+          <div class="diff-content">
+            <h2 class="healer-title">
+              Not just content.
+              <span class="gradient-text" style="display: block;">A living ecosystem.</span>
+            </h2>
+            <div class="diff-list">
+              <p class="diff-item">
+                <span class="diff-dot"></span>
+                Curated depth.
+              </p>
+              <p class="diff-item">
+                <span class="diff-dot"></span>
+                Nervous system safety.
+              </p>
+              <p class="diff-item">
+                <span class="diff-dot"></span>
+                Real-life integration.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== PARTNERSHIP SECTION ====================== -->
+    <section class="partners-section">
+      <div class="partners-bg"></div>
+
+      <div class="healer-container" style="position: relative; z-index: 10;">
+        <div class="section-header animate-on-scroll">
+          <span class="badge badge-cyan" style="margin-bottom: 1.5rem;">Trusted Partners</span>
+          <h2 style="font-size: 1.875rem; font-weight: 700; color: hsl(var(--foreground)); margin-bottom: 1rem;">
+            Backed by <span class="gradient-text">Leading Institutions</span>
+          </h2>
+          <p style="color: hsl(var(--muted-foreground)); max-width: 42rem; margin: 0 auto; font-size: 1.125rem;">
+            Partnering with India's most prestigious innovation ecosystems
+          </p>
+        </div>
+
+        <div class="partners-grid stagger-children">
+          <div class="partner-card">
+            <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&h=80&fit=crop&auto=format" alt="DST NIDHI" class="partner-logo">
+          </div>
+          <div class="partner-card">
+            <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&h=80&fit=crop&auto=format" alt="IIT Madras" class="partner-logo">
+          </div>
+          <div class="partner-card">
+            <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&h=80&fit=crop&auto=format" alt="IITM Research Park" class="partner-logo">
+          </div>
+          <div class="partner-card">
+            <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&h=80&fit=crop&auto=format" alt="Vel Tech" class="partner-logo">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== FOUNDER SECTION ====================== -->
+    <section class="founder-section healer-section" id="about">
+      <div class="founder-bg"></div>
+      <div class="founder-bg-gradient"></div>
+
+      <div class="healer-container animate-on-scroll" style="position: relative; z-index: 10;">
+        <div class="founder-wrapper">
+          <div class="founder-grid">
+            <div class="founder-image-container">
+              <div class="founder-image-glow"></div>
+              <img 
+                src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/f1f4d59d-b16e-4a11-9c6d-5bbf44aeec52.jpg" 
+                alt="Mira, Founder of Healer" 
+                class="founder-image"
+              >
+            </div>
+
+            <div class="founder-content">
+              <span class="badge badge-violet">Our Story</span>
+              <h2 class="healer-title">
+                Why <span class="gradient-text">Healer</span> was born
+              </h2>
+
+              <div class="quote-container">
+                <i data-lucide="quote" class="quote-icon"></i>
+                <div class="quote-content">
+                  <p class="healer-body">
+                    Healer was created from lived pain, loss, and years inside the personal growth world.
+                  </p>
+                  <p class="healer-body">
+                    The personal growth world stops at awareness. Transformation requires emotional and nervous system rewiring.
+                  </p>
+                  <div class="highlight-box">
+                    <p>Healer exists to bridge that gap.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="founder-info">
+                <div class="founder-avatar">M</div>
+                <div>
+                  <p class="founder-name">Mira</p>
+                  <p class="founder-role">Founder of Healer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== CTA SECTION ====================== -->
+    <section class="cta-section healer-section">
+      <div class="cta-bg"></div>
+      <div class="blob animate-pulse-soft" style="top: 0; left: 25%; width: 500px; height: 500px; background: linear-gradient(to bottom right, hsl(var(--violet) / 0.2), transparent);"></div>
+      <div class="blob animate-pulse-soft" style="bottom: 0; right: 25%; width: 400px; height: 400px; background: linear-gradient(to top left, hsl(var(--cyan-soft) / 0.3), transparent); animation-delay: 2s;"></div>
+
+      <div class="healer-container animate-on-scroll" style="position: relative; z-index: 10;">
+        <div class="cta-content">
+          <span class="badge badge-violet">Get Started</span>
+          <h2 class="healer-title cta-title">
+            Start your healing journey <span class="gradient-text">differently</span>
+          </h2>
+
+          <div class="cta-text">
+            <p class="healer-body" style="font-size: 1.25rem;">
+              This isn't another app to consume.
+            </p>
+            <p style="font-size: 1.25rem; font-weight: 600; color: hsl(var(--foreground)); margin-top: 1rem;">
+              It's a space to come home to yourself.
+            </p>
+          </div>
+
+          <div style="padding-top: 1rem;">
+            <a href="https://form.typeform.com/to/Uujm1fxF" target="_blank" rel="noopener noreferrer">
+              <button class="btn-hero">
+                Join Early Access
+                <i data-lucide="arrow-right" style="width: 1.25rem; height: 1.25rem;"></i>
+              </button>
+            </a>
+          </div>
+
+          <div class="cta-image-container">
+            <div class="cta-image-glow"></div>
+            <img 
+              src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/e2af7aec-5124-4f88-a83d-0539b7bd7506.jpg" 
+              alt="Walking toward healing and coming home" 
+              class="cta-image"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="footer">
+    <div class="footer-bg"></div>
+    <div class="healer-container footer-content">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/d7ed1105-72bb-4b95-9257-1c73ad192fd5.png" alt="Healer" style="border-radius: 8px;">
+            <span>Healer</span>
+          </div>
+          <p class="footer-tagline">Because healing is meant to be lived.</p>
+        </div>
+
+        <nav class="footer-nav">
+          <a href="#philosophy" class="footer-link">Philosophy</a>
+          <a href="#programs" class="footer-link">Programs</a>
+          <a href="#about" class="footer-link">About</a>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2024 Healer. All rights reserved.</p>
+        <p class="footer-made-with">
+          Made with 
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/>
+          </svg>
+          for your journey
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================== JAVASCRIPT ====================== -->
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    let isMenuOpen = false;
+
+    mobileMenuBtn.addEventListener('click', () => {
+      isMenuOpen = !isMenuOpen;
+      mobileMenu.classList.toggle('open', isMenuOpen);
+      menuIcon.setAttribute('data-lucide', isMenuOpen ? 'x' : 'menu');
+      lucide.createIcons();
+    });
+
+    // Close mobile menu when clicking a link
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        isMenuOpen = false;
+        mobileMenu.classList.remove('open');
+        menuIcon.setAttribute('data-lucide', 'menu');
+        lucide.createIcons();
+      });
+    });
+
+    // Scroll animations with Intersection Observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    document.querySelectorAll('.animate-on-scroll, .stagger-children').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Update copyright year
+    document.querySelector('.footer-copyright').textContent = `© ${new Date().getFullYear()} Healer. All rights reserved.`;
+  </script>
+</body>
+</html>
