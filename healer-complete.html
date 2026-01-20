@@ -17,9 +17,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  
   <style>
     /* ====================== CSS RESET & BASE ====================== */
     *, *::before, *::after {
@@ -29,7 +26,6 @@
     }
 
     :root {
-      /* Healer Premium Palette */
       --background: 240 20% 98%;
       --foreground: 240 40% 15%;
       --card: 250 25% 99%;
@@ -46,7 +42,6 @@
       --ring: 262 68% 50%;
       --radius: 1rem;
       
-      /* Custom Healer tokens */
       --violet: 262 68% 50%;
       --violet-deep: 263 65% 43%;
       --violet-bright: 274 89% 58%;
@@ -58,13 +53,11 @@
       --lavender-muted: 245 15% 81%;
       --gray-soft: 240 20% 92%;
 
-      /* Gradients */
       --gradient-hero: linear-gradient(180deg, hsl(240 20% 98%) 0%, hsl(266 60% 96%) 50%, hsl(195 60% 96%) 100%);
       --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(266 40% 98%) 100%);
       --gradient-accent: linear-gradient(135deg, hsl(262 68% 50%) 0%, hsl(274 89% 58%) 50%, hsl(205 94% 54%) 100%);
       --gradient-text: linear-gradient(135deg, hsl(262 68% 50%) 0%, hsl(205 94% 54%) 100%);
 
-      /* Shadows */
       --shadow-soft: 0 4px 24px -4px hsl(262 50% 30% / 0.08);
       --shadow-card: 0 8px 40px -8px hsl(262 50% 30% / 0.12);
       --shadow-hover: 0 16px 48px -12px hsl(262 50% 30% / 0.2);
@@ -84,7 +77,7 @@
       line-height: 1.6;
     }
 
-    img {
+    img, svg {
       max-width: 100%;
       height: auto;
       display: block;
@@ -109,15 +102,11 @@
     }
 
     @media (min-width: 768px) {
-      .healer-container {
-        padding: 0 2rem;
-      }
+      .healer-container { padding: 0 2rem; }
     }
 
     @media (min-width: 1024px) {
-      .healer-container {
-        padding: 0 3rem;
-      }
+      .healer-container { padding: 0 3rem; }
     }
 
     .healer-section {
@@ -125,9 +114,7 @@
     }
 
     @media (min-width: 768px) {
-      .healer-section {
-        padding: 8rem 0;
-      }
+      .healer-section { padding: 8rem 0; }
     }
 
     .healer-card {
@@ -153,17 +140,8 @@
       color: hsl(var(--foreground));
     }
 
-    @media (min-width: 768px) {
-      .healer-headline {
-        font-size: 3rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .healer-headline {
-        font-size: 3.75rem;
-      }
-    }
+    @media (min-width: 768px) { .healer-headline { font-size: 3rem; } }
+    @media (min-width: 1024px) { .healer-headline { font-size: 3.75rem; } }
 
     .healer-subheadline {
       font-size: 1.25rem;
@@ -172,11 +150,7 @@
       line-height: 1.7;
     }
 
-    @media (min-width: 768px) {
-      .healer-subheadline {
-        font-size: 1.5rem;
-      }
-    }
+    @media (min-width: 768px) { .healer-subheadline { font-size: 1.5rem; } }
 
     .healer-title {
       font-size: 1.875rem;
@@ -185,17 +159,8 @@
       margin-bottom: 1.5rem;
     }
 
-    @media (min-width: 768px) {
-      .healer-title {
-        font-size: 2.25rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .healer-title {
-        font-size: 3rem;
-      }
-    }
+    @media (min-width: 768px) { .healer-title { font-size: 2.25rem; } }
+    @media (min-width: 1024px) { .healer-title { font-size: 3rem; } }
 
     .healer-body {
       font-size: 1.125rem;
@@ -203,11 +168,7 @@
       line-height: 1.7;
     }
 
-    @media (min-width: 768px) {
-      .healer-body {
-        font-size: 1.25rem;
-      }
-    }
+    @media (min-width: 768px) { .healer-body { font-size: 1.25rem; } }
 
     .gradient-text {
       background: var(--gradient-text);
@@ -223,21 +184,10 @@
       border: 1px solid hsl(0 0% 100% / 0.2);
     }
 
-    .shadow-soft {
-      box-shadow: var(--shadow-soft);
-    }
-
-    .shadow-card {
-      box-shadow: var(--shadow-card);
-    }
-
-    .shadow-glow {
-      box-shadow: var(--shadow-glow);
-    }
-
-    .gradient-hero {
-      background: var(--gradient-hero);
-    }
+    .shadow-soft { box-shadow: var(--shadow-soft); }
+    .shadow-card { box-shadow: var(--shadow-card); }
+    .shadow-glow { box-shadow: var(--shadow-glow); }
+    .gradient-hero { background: var(--gradient-hero); }
 
     .hover-lift {
       transition: all 0.3s ease;
@@ -296,6 +246,11 @@
       50% { opacity: 0.6; }
     }
 
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
     .blob {
       position: absolute;
       border-radius: 50%;
@@ -303,19 +258,11 @@
       animation: blob-float 20s ease-in-out infinite;
     }
 
-    .animate-float {
-      animation: float 6s ease-in-out infinite;
-    }
+    .animate-float { animation: float 6s ease-in-out infinite; }
+    .animate-fade-in { animation: fade-in 1s ease-out forwards; }
+    .animate-pulse-soft { animation: pulse-soft 4s ease-in-out infinite; }
+    .animate-spin-slow { animation: spin-slow 20s linear infinite; }
 
-    .animate-fade-in {
-      animation: fade-in 1s ease-out forwards;
-    }
-
-    .animate-pulse-soft {
-      animation: pulse-soft 4s ease-in-out infinite;
-    }
-
-    /* Scroll animations */
     .animate-on-scroll {
       opacity: 0;
       transform: translateY(40px);
@@ -354,7 +301,6 @@
     .header.scrolled {
       background: hsl(var(--background) / 0.8);
       backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
       box-shadow: var(--shadow-soft);
       padding: 0.75rem 0;
       border-bottom: 1px solid hsl(var(--border) / 0.5);
@@ -372,15 +318,13 @@
       gap: 0.75rem;
     }
 
-    .logo img {
+    .logo-icon {
       width: 2.75rem;
       height: 2.75rem;
       transition: transform 0.3s ease;
     }
 
-    .logo:hover img {
-      transform: scale(1.05);
-    }
+    .logo:hover .logo-icon { transform: scale(1.05); }
 
     .logo span {
       font-size: 1.25rem;
@@ -395,11 +339,7 @@
       gap: 2.5rem;
     }
 
-    @media (min-width: 768px) {
-      .nav-desktop {
-        display: flex;
-      }
-    }
+    @media (min-width: 768px) { .nav-desktop { display: flex; } }
 
     .nav-link {
       color: hsl(var(--muted-foreground));
@@ -407,19 +347,10 @@
       transition: color 0.3s ease;
     }
 
-    .nav-link:hover {
-      color: hsl(var(--violet));
-    }
+    .nav-link:hover { color: hsl(var(--violet)); }
 
-    .header-cta {
-      display: none;
-    }
-
-    @media (min-width: 768px) {
-      .header-cta {
-        display: block;
-      }
-    }
+    .header-cta { display: none; }
+    @media (min-width: 768px) { .header-cta { display: block; } }
 
     .mobile-menu-btn {
       display: block;
@@ -430,15 +361,8 @@
       transition: background 0.3s ease;
     }
 
-    .mobile-menu-btn:hover {
-      background: hsl(var(--secondary) / 0.5);
-    }
-
-    @media (min-width: 768px) {
-      .mobile-menu-btn {
-        display: none;
-      }
-    }
+    .mobile-menu-btn:hover { background: hsl(var(--secondary) / 0.5); }
+    @media (min-width: 768px) { .mobile-menu-btn { display: none; } }
 
     .mobile-menu {
       display: none;
@@ -450,15 +374,8 @@
       border: 1px solid hsl(var(--border) / 0.5);
     }
 
-    .mobile-menu.open {
-      display: block;
-    }
-
-    @media (min-width: 768px) {
-      .mobile-menu {
-        display: none !important;
-      }
-    }
+    .mobile-menu.open { display: block; }
+    @media (min-width: 768px) { .mobile-menu { display: none !important; } }
 
     .mobile-nav-link {
       display: block;
@@ -474,7 +391,35 @@
       background: hsl(var(--secondary) / 0.5);
     }
 
-    /* ====================== HERO SECTION ====================== */
+    /* ====================== SVG ILLUSTRATIONS ====================== */
+    .illustration-container {
+      position: relative;
+      width: 100%;
+      max-width: 24rem;
+      margin: 0 auto;
+    }
+
+    .wheel-illustration {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 20px 40px hsl(262 50% 30% / 0.2));
+    }
+
+    .person-illustration {
+      width: 100%;
+      max-width: 20rem;
+      height: auto;
+    }
+
+    .scene-illustration {
+      width: 100%;
+      max-width: 32rem;
+      height: auto;
+      border-radius: 1.5rem;
+      overflow: hidden;
+    }
+
+    /* ====================== SECTION STYLES ====================== */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -509,11 +454,7 @@
       align-items: center;
     }
 
-    @media (min-width: 1024px) {
-      .hero-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
+    @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1fr 1fr; } }
 
     .hero-text {
       display: flex;
@@ -559,11 +500,7 @@
       justify-content: center;
     }
 
-    @media (min-width: 1024px) {
-      .hero-image-container {
-        justify-content: flex-end;
-      }
-    }
+    @media (min-width: 1024px) { .hero-image-container { justify-content: flex-end; } }
 
     .hero-image-wrapper {
       position: relative;
@@ -571,104 +508,28 @@
 
     .hero-image-glow {
       position: absolute;
-      inset: 0;
-      border-radius: 1.5rem;
+      inset: -20%;
+      border-radius: 50%;
       filter: blur(60px);
       opacity: 0.4;
       background: linear-gradient(to bottom right, hsl(var(--violet)), hsl(var(--cyan-soft)));
-      transform: scale(0.95);
     }
 
-    .hero-image {
-      width: 100%;
-      max-width: 24rem;
-      border-radius: 1.5rem;
-      box-shadow: var(--shadow-glow);
-      object-fit: contain;
-      position: relative;
-    }
-
-    .hero-decorative {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(32px);
-    }
-
-    /* ====================== PROBLEM SECTION ====================== */
-    .problem-section {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .problem-bg-gradient {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 500px;
-      height: 500px;
-      background: linear-gradient(to right, hsl(var(--lavender) / 0.3), transparent);
-      border-radius: 50%;
-      filter: blur(60px);
-      transform: translateY(-50%);
-    }
-
-    .problem-grid {
-      display: grid;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    @media (min-width: 1024px) {
-      .problem-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 6rem;
-      }
-    }
-
-    .problem-image-container {
-      order: 2;
-    }
-
-    @media (min-width: 1024px) {
-      .problem-image-container {
-        order: 1;
-      }
-    }
-
-    .problem-image-wrapper {
-      position: relative;
-    }
-
-    .problem-image-glow {
+    /* Section backgrounds */
+    .section-bg {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom right, hsl(var(--violet) / 0.2), hsl(var(--cyan-soft) / 0.2));
-      border-radius: 1.5rem;
+    }
+
+    .section-bg-gradient {
+      position: absolute;
+      border-radius: 50%;
       filter: blur(60px);
-      transform: scale(0.95);
     }
 
-    .problem-image {
-      width: 100%;
-      max-width: 32rem;
-      margin: 0 auto;
-      border-radius: 1.5rem;
-      box-shadow: var(--shadow-card);
-      position: relative;
-      z-index: 10;
-    }
-
-    .problem-content {
-      order: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    @media (min-width: 1024px) {
-      .problem-content {
-        order: 2;
-      }
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
     }
 
     .badge {
@@ -679,20 +540,9 @@
       font-weight: 600;
     }
 
-    .badge-rose {
-      background: hsl(350 80% 95%);
-      color: hsl(350 80% 45%);
-    }
-
-    .badge-violet {
-      background: hsl(var(--violet) / 0.1);
-      color: hsl(var(--violet));
-    }
-
-    .badge-cyan {
-      background: hsl(var(--cyan-soft) / 0.2);
-      color: hsl(var(--blue-ocean));
-    }
+    .badge-rose { background: hsl(350 80% 95%); color: hsl(350 80% 45%); }
+    .badge-violet { background: hsl(var(--violet) / 0.1); color: hsl(var(--violet)); }
+    .badge-cyan { background: hsl(var(--cyan-soft) / 0.2); color: hsl(var(--blue-ocean)); }
 
     .highlight-box {
       padding: 1.5rem;
@@ -707,57 +557,36 @@
       color: hsl(var(--foreground));
     }
 
-    @media (min-width: 768px) {
-      .highlight-box p {
-        font-size: 1.25rem;
-      }
+    @media (min-width: 768px) { .highlight-box p { font-size: 1.25rem; } }
+
+    /* Grid layouts */
+    .two-col-grid {
+      display: grid;
+      gap: 4rem;
+      align-items: center;
     }
 
-    /* ====================== PHILOSOPHY SECTION ====================== */
-    .philosophy-section {
-      position: relative;
-      overflow: hidden;
-    }
+    @media (min-width: 1024px) { .two-col-grid { grid-template-columns: 1fr 1fr; gap: 6rem; } }
 
-    .philosophy-bg {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--secondary) / 0.2), hsl(var(--background)));
-    }
-
-    .philosophy-radial {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(circle, hsl(var(--violet) / 0.1), transparent);
-      border-radius: 50%;
-      filter: blur(60px);
-    }
-
-    .section-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .beliefs-grid {
+    .three-col-grid {
       display: grid;
       gap: 2rem;
     }
 
-    @media (min-width: 768px) {
-      .beliefs-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+    @media (min-width: 768px) { .three-col-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .programs-grid {
+      display: grid;
+      gap: 1.5rem;
     }
 
-    .belief-card {
-      text-align: center;
-    }
+    @media (min-width: 640px) { .programs-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .programs-grid { grid-template-columns: repeat(3, 1fr); } }
 
-    .belief-icon {
+    /* Cards */
+    .belief-card { text-align: center; }
+
+    .icon-box {
       width: 5rem;
       height: 5rem;
       margin: 0 auto 2rem;
@@ -768,15 +597,40 @@
       transition: all 0.5s ease;
     }
 
-    .belief-card:hover .belief-icon {
+    .healer-card:hover .icon-box {
       transform: scale(1.1);
       box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.3);
     }
 
-    .belief-icon i {
+    .icon-box svg {
       width: 2.5rem;
       height: 2.5rem;
       color: white;
+    }
+
+    .icon-box-sm {
+      width: 4rem;
+      height: 4rem;
+      margin: 0;
+    }
+
+    .icon-box-sm svg {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .program-card {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      cursor: default;
+    }
+
+    .program-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: hsl(var(--foreground));
+      line-height: 1.4;
     }
 
     .belief-title {
@@ -786,36 +640,7 @@
       line-height: 1.5;
     }
 
-    /* ====================== WHAT IS HEALER SECTION ====================== */
-    .what-is-section {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .what-is-bg-gradient {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 600px;
-      height: 600px;
-      background: linear-gradient(to top left, hsl(var(--cyan-soft) / 0.2), transparent);
-      border-radius: 50%;
-      filter: blur(60px);
-    }
-
-    .what-is-grid {
-      display: grid;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    @media (min-width: 1024px) {
-      .what-is-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 6rem;
-      }
-    }
-
+    /* Benefits */
     .benefits-list {
       display: flex;
       flex-direction: column;
@@ -843,7 +668,7 @@
       margin-top: 0.125rem;
     }
 
-    .benefit-check i {
+    .benefit-check svg {
       width: 1rem;
       height: 1rem;
       color: white;
@@ -855,249 +680,7 @@
       color: hsl(var(--foreground));
     }
 
-    .app-image-container {
-      position: relative;
-    }
-
-    .app-image-glow {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom right, hsl(var(--violet) / 0.3), hsl(var(--blue-ocean) / 0.3));
-      border-radius: 1.5rem;
-      filter: blur(60px);
-      transform: scale(0.9);
-      opacity: 0.5;
-    }
-
-    .app-image {
-      width: 100%;
-      max-width: 24rem;
-      margin: 0 auto;
-      border-radius: 1.5rem;
-      box-shadow: var(--shadow-glow);
-      position: relative;
-      z-index: 10;
-    }
-
-    @media (min-width: 1024px) {
-      .app-image {
-        margin: 0 0 0 auto;
-      }
-    }
-
-    .floating-badge {
-      position: absolute;
-      top: -1rem;
-      left: -1rem;
-      padding: 1rem;
-      border-radius: 1rem;
-      box-shadow: var(--shadow-card);
-      display: none;
-    }
-
-    @media (min-width: 768px) {
-      .floating-badge {
-        display: block;
-      }
-    }
-
-    .floating-badge-content {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .floating-badge-dot {
-      width: 0.75rem;
-      height: 0.75rem;
-      border-radius: 50%;
-      background: #22c55e;
-    }
-
-    .floating-badge span {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: hsl(var(--foreground));
-    }
-
-    /* ====================== PROGRAMS SECTION ====================== */
-    .programs-section {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .programs-bg {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--secondary) / 0.2), hsl(var(--background)));
-    }
-
-    .programs-grid {
-      display: grid;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 640px) {
-      .programs-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .programs-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .program-card {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      cursor: default;
-    }
-
-    .program-icon {
-      width: 4rem;
-      height: 4rem;
-      flex-shrink: 0;
-      border-radius: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.5s ease;
-    }
-
-    .program-card:hover .program-icon {
-      transform: scale(1.1);
-      box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.3);
-    }
-
-    .program-icon i {
-      width: 2rem;
-      height: 2rem;
-      color: white;
-    }
-
-    .program-title {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: hsl(var(--foreground));
-      line-height: 1.4;
-    }
-
-    /* ====================== AI COMPANION SECTION ====================== */
-    .ai-section {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .ai-bg {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom right, hsl(var(--secondary) / 0.3), hsl(var(--background)), hsl(var(--accent) / 0.2));
-    }
-
-    .ai-grid {
-      display: grid;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    @media (min-width: 1024px) {
-      .ai-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .ai-image-container {
-      position: relative;
-    }
-
-    .ai-image-glow {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom right, hsl(var(--violet) / 0.3), hsl(var(--cyan-soft) / 0.3));
-      border-radius: 1.5rem;
-      filter: blur(60px);
-      transform: scale(0.95);
-      opacity: 0.6;
-    }
-
-    .ai-image-wrapper {
-      position: relative;
-      border-radius: 1.5rem;
-      overflow: hidden;
-      box-shadow: var(--shadow-glow);
-      border: 1px solid hsl(var(--border) / 0.5);
-    }
-
-    .ai-image {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    .ai-image-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, hsl(var(--violet) / 0.3), transparent, transparent);
-    }
-
-    .ai-floating-badge {
-      position: absolute;
-      bottom: -1rem;
-      right: -1rem;
-      padding: 1rem;
-      border-radius: 1rem;
-      box-shadow: var(--shadow-hover);
-    }
-
-    @media (min-width: 768px) {
-      .ai-floating-badge {
-        bottom: 2rem;
-        right: -2rem;
-      }
-    }
-
-    .ai-badge-content {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .ai-badge-icon {
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: 0.75rem;
-      background: var(--gradient-accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .ai-badge-icon i {
-      width: 1.25rem;
-      height: 1.25rem;
-      color: white;
-    }
-
-    .ai-badge-text p:first-child {
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: hsl(var(--foreground));
-    }
-
-    .ai-badge-text p:last-child {
-      font-size: 0.75rem;
-      color: hsl(var(--muted-foreground));
-    }
-
-    .features-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
+    /* Feature cards */
     .feature-card {
       position: relative;
       padding: 1.5rem;
@@ -1127,10 +710,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.3s ease;
     }
 
-    .feature-icon i {
+    .feature-icon svg {
       width: 1.75rem;
       height: 1.75rem;
       color: white;
@@ -1148,52 +730,7 @@
       line-height: 1.6;
     }
 
-    /* ====================== DIFFERENTIATOR SECTION ====================== */
-    .diff-section {
-      background: hsl(var(--background));
-    }
-
-    .diff-grid {
-      display: grid;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    @media (min-width: 1024px) {
-      .diff-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .diff-image-container {
-      order: 2;
-    }
-
-    @media (min-width: 1024px) {
-      .diff-image-container {
-        order: 1;
-      }
-    }
-
-    .diff-image {
-      width: 100%;
-      border-radius: 1.5rem;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .diff-content {
-      order: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    @media (min-width: 1024px) {
-      .diff-content {
-        order: 2;
-      }
-    }
-
+    /* Differentiator */
     .diff-list {
       display: flex;
       flex-direction: column;
@@ -1217,24 +754,9 @@
       flex-shrink: 0;
     }
 
-    /* ====================== PARTNERSHIP SECTION ====================== */
-    .partners-section {
-      padding: 5rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    @media (min-width: 768px) {
-      .partners-section {
-        padding: 7rem 0;
-      }
-    }
-
-    .partners-bg {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--secondary) / 0.2), hsl(var(--background)));
-    }
+    /* Partners */
+    .partners-section { padding: 5rem 0; position: relative; overflow: hidden; }
+    @media (min-width: 768px) { .partners-section { padding: 7rem 0; } }
 
     .partners-grid {
       display: flex;
@@ -1244,27 +766,21 @@
       gap: 1.5rem;
     }
 
-    @media (min-width: 768px) {
-      .partners-grid {
-        gap: 2.5rem;
-      }
-    }
+    @media (min-width: 768px) { .partners-grid { gap: 2.5rem; } }
 
     .partner-card {
       position: relative;
-      padding: 1.5rem;
+      padding: 1.5rem 2rem;
       border-radius: 1rem;
       background: hsl(var(--card) / 0.8);
       backdrop-filter: blur(8px);
       border: 1px solid hsl(var(--border) / 0.5);
       transition: all 0.5s ease;
+      min-width: 180px;
+      text-align: center;
     }
 
-    @media (min-width: 768px) {
-      .partner-card {
-        padding: 2rem;
-      }
-    }
+    @media (min-width: 768px) { .partner-card { padding: 2rem 2.5rem; } }
 
     .partner-card:hover {
       border-color: hsl(var(--violet) / 0.3);
@@ -1272,114 +788,22 @@
       box-shadow: var(--shadow-hover);
     }
 
-    .partner-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom right, hsl(var(--violet) / 0.05), hsl(var(--cyan-soft) / 0.05));
-      opacity: 0;
-      border-radius: 1rem;
-      transition: opacity 0.5s ease;
+    .partner-name {
+      font-weight: 600;
+      color: hsl(var(--foreground));
+      font-size: 1rem;
     }
 
-    .partner-card:hover::before {
-      opacity: 1;
-    }
-
-    .partner-logo {
-      height: 3.5rem;
-      width: auto;
-      object-fit: contain;
-      position: relative;
-      z-index: 10;
-      filter: grayscale(100%);
-      transition: filter 0.5s ease;
-    }
-
-    @media (min-width: 768px) {
-      .partner-logo {
-        height: 5rem;
-      }
-    }
-
-    .partner-card:hover .partner-logo {
-      filter: grayscale(0%);
-    }
-
-    /* ====================== FOUNDER SECTION ====================== */
-    .founder-section {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .founder-bg {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--secondary) / 0.2), hsl(var(--background)));
-    }
-
-    .founder-bg-gradient {
-      position: absolute;
-      top: 50%;
-      right: 0;
-      width: 600px;
-      height: 600px;
-      background: linear-gradient(to left, hsl(var(--lavender) / 0.3), transparent);
-      border-radius: 50%;
-      filter: blur(60px);
-      transform: translateY(-50%);
-    }
-
-    .founder-wrapper {
-      max-width: 64rem;
-      margin: 0 auto;
-    }
-
+    /* Founder */
     .founder-grid {
       display: grid;
       gap: 3rem;
       align-items: center;
     }
 
-    @media (min-width: 768px) {
-      .founder-grid {
-        grid-template-columns: 2fr 3fr;
-        gap: 4rem;
-      }
-    }
+    @media (min-width: 768px) { .founder-grid { grid-template-columns: 2fr 3fr; gap: 4rem; } }
 
-    .founder-image-container {
-      position: relative;
-    }
-
-    .founder-image-glow {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom right, hsl(var(--violet) / 0.3), hsl(var(--cyan-soft) / 0.3));
-      border-radius: 1.5rem;
-      filter: blur(60px);
-      transform: scale(0.95);
-    }
-
-    .founder-image {
-      width: 100%;
-      max-width: 20rem;
-      margin: 0 auto;
-      border-radius: 1.5rem;
-      box-shadow: var(--shadow-glow);
-      position: relative;
-      z-index: 10;
-    }
-
-    .founder-content {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .quote-container {
-      position: relative;
-    }
+    .quote-container { position: relative; }
 
     .quote-icon {
       position: absolute;
@@ -1427,18 +851,7 @@
       color: hsl(var(--muted-foreground));
     }
 
-    /* ====================== CTA SECTION ====================== */
-    .cta-section {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-bg {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--violet) / 0.05), hsl(var(--secondary) / 0.3));
-    }
-
+    /* CTA */
     .cta-content {
       max-width: 56rem;
       margin: 0 auto;
@@ -1448,52 +861,11 @@
       gap: 2.5rem;
     }
 
-    .cta-title {
-      font-size: 2.25rem;
-    }
+    .cta-title { font-size: 2.25rem; }
+    @media (min-width: 768px) { .cta-title { font-size: 3rem; } }
+    @media (min-width: 1024px) { .cta-title { font-size: 3.75rem; } }
 
-    @media (min-width: 768px) {
-      .cta-title {
-        font-size: 3rem;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .cta-title {
-        font-size: 3.75rem;
-      }
-    }
-
-    .cta-text {
-      max-width: 42rem;
-      margin: 0 auto;
-    }
-
-    .cta-image-container {
-      padding-top: 3rem;
-      position: relative;
-    }
-
-    .cta-image-glow {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom right, hsl(var(--violet) / 0.2), hsl(var(--cyan-soft) / 0.2));
-      border-radius: 1.5rem;
-      filter: blur(60px);
-      transform: scale(0.95);
-    }
-
-    .cta-image {
-      width: 100%;
-      max-width: 48rem;
-      margin: 0 auto;
-      border-radius: 1.5rem;
-      box-shadow: var(--shadow-glow);
-      position: relative;
-      z-index: 10;
-    }
-
-    /* ====================== FOOTER ====================== */
+    /* Footer */
     .footer {
       position: relative;
       overflow: hidden;
@@ -1520,10 +892,7 @@
     }
 
     @media (min-width: 768px) {
-      .footer-main {
-        flex-direction: row;
-        justify-content: space-between;
-      }
+      .footer-main { flex-direction: row; justify-content: space-between; }
     }
 
     .footer-brand {
@@ -1533,11 +902,7 @@
       gap: 1rem;
     }
 
-    @media (min-width: 768px) {
-      .footer-brand {
-        align-items: flex-start;
-      }
-    }
+    @media (min-width: 768px) { .footer-brand { align-items: flex-start; } }
 
     .footer-logo {
       display: flex;
@@ -1545,20 +910,9 @@
       gap: 0.75rem;
     }
 
-    .footer-logo img {
-      height: 3rem;
-      width: auto;
-    }
-
-    .footer-logo span {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: hsl(var(--foreground));
-    }
-
-    .footer-tagline {
-      color: hsl(var(--muted-foreground));
-    }
+    .footer-logo svg { height: 3rem; width: 3rem; }
+    .footer-logo span { font-size: 1.25rem; font-weight: 700; color: hsl(var(--foreground)); }
+    .footer-tagline { color: hsl(var(--muted-foreground)); }
 
     .footer-nav {
       display: flex;
@@ -1573,9 +927,7 @@
       transition: color 0.3s ease;
     }
 
-    .footer-link:hover {
-      color: hsl(var(--violet));
-    }
+    .footer-link:hover { color: hsl(var(--violet)); }
 
     .footer-bottom {
       margin-top: 3rem;
@@ -1588,16 +940,10 @@
     }
 
     @media (min-width: 768px) {
-      .footer-bottom {
-        flex-direction: row;
-        justify-content: space-between;
-      }
+      .footer-bottom { flex-direction: row; justify-content: space-between; }
     }
 
-    .footer-copyright {
-      font-size: 0.875rem;
-      color: hsl(var(--muted-foreground));
-    }
+    .footer-copyright { font-size: 0.875rem; color: hsl(var(--muted-foreground)); }
 
     .footer-made-with {
       display: flex;
@@ -1607,29 +953,130 @@
       color: hsl(var(--muted-foreground));
     }
 
-    .footer-made-with svg {
-      width: 1rem;
-      height: 1rem;
-      color: #f43f5e;
-      fill: #f43f5e;
-    }
+    .footer-made-with svg { width: 1rem; height: 1rem; color: #f43f5e; fill: #f43f5e; }
 
-    /* ====================== GRADIENT BACKGROUNDS ====================== */
+    /* Gradients */
     .bg-gradient-violet { background: linear-gradient(135deg, hsl(262 68% 50%), hsl(274 89% 58%)); }
     .bg-gradient-blue { background: linear-gradient(135deg, hsl(224 80% 37%), hsl(205 94% 54%)); }
     .bg-gradient-pink { background: linear-gradient(135deg, #ec4899, #f43f5e); }
     .bg-gradient-green { background: linear-gradient(135deg, #22c55e, #10b981); }
     .bg-gradient-amber { background: linear-gradient(135deg, #f59e0b, #f97316); }
     .bg-gradient-purple { background: linear-gradient(135deg, hsl(274 89% 58%), #9333ea); }
+
+    /* Floating badge */
+    .floating-badge {
+      position: absolute;
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .floating-badge-content {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .floating-badge-dot {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+
+    .floating-badge span {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: hsl(var(--foreground));
+    }
+
+    /* Image containers with glow */
+    .image-glow-container {
+      position: relative;
+    }
+
+    .image-glow {
+      position: absolute;
+      inset: -10%;
+      background: linear-gradient(to bottom right, hsl(var(--violet) / 0.3), hsl(var(--cyan-soft) / 0.3));
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.6;
+    }
   </style>
 </head>
 <body>
+  <!-- ====================== EMBEDDED SVG ICONS ====================== -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+    </symbol>
+    <symbol id="icon-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/>
+    </symbol>
+    <symbol id="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>
+    </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 6 9 17l-5-5"/>
+    </symbol>
+    <symbol id="icon-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+    </symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/>
+    </symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+    </symbol>
+    <symbol id="icon-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+    </symbol>
+    <symbol id="icon-lightbulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/>
+    </symbol>
+    <symbol id="icon-book-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+    </symbol>
+    <symbol id="icon-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>
+    </symbol>
+    <symbol id="icon-quote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+    </symbol>
+    <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+    </symbol>
+    <symbol id="icon-heart-filled" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/>
+    </symbol>
+  </svg>
+
   <!-- ====================== HEADER ====================== -->
   <header class="header" id="header">
     <div class="healer-container">
       <div class="header-content">
         <a href="#" class="logo">
-          <img src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/d7ed1105-72bb-4b95-9257-1c73ad192fd5.png" alt="Healer Logo" style="border-radius: 8px;">
+          <!-- Embedded Logo SVG -->
+          <svg class="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:hsl(262, 68%, 50%)"/>
+                <stop offset="50%" style="stop-color:hsl(274, 89%, 58%)"/>
+                <stop offset="100%" style="stop-color:hsl(205, 94%, 54%)"/>
+              </linearGradient>
+            </defs>
+            <circle cx="50" cy="50" r="45" fill="url(#logoGrad)"/>
+            <path d="M50 25C50 25 35 35 35 50C35 58 40 65 50 70C60 65 65 58 65 50C65 35 50 25 50 25Z" fill="white" opacity="0.9"/>
+            <circle cx="50" cy="48" r="8" fill="white"/>
+            <path d="M50 60C50 60 42 55 42 48C42 43 46 40 50 40C54 40 58 43 58 48C58 55 50 60 50 60Z" fill="url(#logoGrad)" opacity="0.6"/>
+          </svg>
           <span>Healer</span>
         </a>
 
@@ -1646,7 +1093,7 @@
         </div>
 
         <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-          <i data-lucide="menu" id="menuIcon"></i>
+          <svg width="24" height="24"><use href="#icon-menu"/></svg>
         </button>
       </div>
 
@@ -1704,13 +1151,84 @@
             <div class="hero-image-wrapper">
               <div class="hero-image-glow"></div>
               <div class="animate-float" style="position: relative;">
-                <img 
-                  src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/d7ed1105-72bb-4b95-9257-1c73ad192fd5.png" 
-                  alt="Programs wheel showing wellness categories" 
-                  class="hero-image"
-                >
-                <div class="hero-decorative" style="top: -1.5rem; right: -1.5rem; width: 6rem; height: 6rem; background: linear-gradient(to bottom right, hsl(var(--violet) / 0.3), hsl(274 89% 58% / 0.3));"></div>
-                <div class="hero-decorative" style="bottom: -1.5rem; left: -1.5rem; width: 8rem; height: 8rem; background: linear-gradient(to bottom right, hsl(var(--cyan-soft) / 0.4), hsl(var(--blue-ocean) / 0.3));"></div>
+                <!-- Wheel of Life SVG Illustration -->
+                <svg class="wheel-illustration" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="wheelGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:hsl(262, 68%, 50%)"/>
+                      <stop offset="100%" style="stop-color:hsl(274, 89%, 58%)"/>
+                    </linearGradient>
+                    <linearGradient id="wheelGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:hsl(205, 94%, 54%)"/>
+                      <stop offset="100%" style="stop-color:hsl(195, 93%, 77%)"/>
+                    </linearGradient>
+                    <linearGradient id="wheelGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#ec4899"/>
+                      <stop offset="100%" style="stop-color:#f43f5e"/>
+                    </linearGradient>
+                    <linearGradient id="wheelGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#22c55e"/>
+                      <stop offset="100%" style="stop-color:#10b981"/>
+                    </linearGradient>
+                    <linearGradient id="wheelGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:#f59e0b"/>
+                      <stop offset="100%" style="stop-color:#f97316"/>
+                    </linearGradient>
+                    <linearGradient id="wheelGrad6" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" style="stop-color:hsl(274, 89%, 58%)"/>
+                      <stop offset="100%" style="stop-color:#9333ea"/>
+                    </linearGradient>
+                    <filter id="glow">
+                      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                      <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
+                  </defs>
+                  
+                  <!-- Background circle -->
+                  <circle cx="200" cy="200" r="180" fill="white" opacity="0.9"/>
+                  <circle cx="200" cy="200" r="180" fill="none" stroke="hsl(262, 68%, 50%)" stroke-width="2" opacity="0.2"/>
+                  
+                  <!-- Wheel segments -->
+                  <g filter="url(#glow)">
+                    <!-- Segment 1 - Life Purpose -->
+                    <path d="M200 200 L200 40 A160 160 0 0 1 338.5 93.4 Z" fill="url(#wheelGrad1)" opacity="0.85"/>
+                    <!-- Segment 2 - Career -->
+                    <path d="M200 200 L338.5 93.4 A160 160 0 0 1 360 200 Z" fill="url(#wheelGrad2)" opacity="0.85"/>
+                    <!-- Segment 3 - Health -->
+                    <path d="M200 200 L360 200 A160 160 0 0 1 338.5 306.6 Z" fill="url(#wheelGrad4)" opacity="0.85"/>
+                    <!-- Segment 4 - Emotional -->
+                    <path d="M200 200 L338.5 306.6 A160 160 0 0 1 200 360 Z" fill="url(#wheelGrad3)" opacity="0.85"/>
+                    <!-- Segment 5 - Entrepreneurship -->
+                    <path d="M200 200 L200 360 A160 160 0 0 1 61.5 306.6 Z" fill="url(#wheelGrad5)" opacity="0.85"/>
+                    <!-- Segment 6 - Expression -->
+                    <path d="M200 200 L61.5 306.6 A160 160 0 0 1 40 200 Z" fill="url(#wheelGrad6)" opacity="0.85"/>
+                    <!-- Segment 7 -->
+                    <path d="M200 200 L40 200 A160 160 0 0 1 61.5 93.4 Z" fill="url(#wheelGrad2)" opacity="0.85"/>
+                    <!-- Segment 8 -->
+                    <path d="M200 200 L61.5 93.4 A160 160 0 0 1 200 40 Z" fill="url(#wheelGrad1)" opacity="0.7"/>
+                  </g>
+                  
+                  <!-- Center circle -->
+                  <circle cx="200" cy="200" r="60" fill="white"/>
+                  <circle cx="200" cy="200" r="55" fill="url(#wheelGrad1)" opacity="0.1"/>
+                  
+                  <!-- Center icon -->
+                  <path d="M200 170 L200 170 C200 170 180 185 180 200 C180 210 188 218 200 225 C212 218 220 210 220 200 C220 185 200 170 200 170 Z" fill="url(#wheelGrad1)"/>
+                  <circle cx="200" cy="195" r="10" fill="white"/>
+                  
+                  <!-- Labels -->
+                  <text x="200" y="75" text-anchor="middle" fill="white" font-size="11" font-weight="600">Life Purpose</text>
+                  <text x="310" y="130" text-anchor="middle" fill="white" font-size="11" font-weight="600">Career</text>
+                  <text x="335" y="220" text-anchor="middle" fill="white" font-size="11" font-weight="600">Health</text>
+                  <text x="290" y="310" text-anchor="middle" fill="white" font-size="11" font-weight="600">Emotional</text>
+                  <text x="200" y="340" text-anchor="middle" fill="white" font-size="11" font-weight="600">Growth</text>
+                  <text x="110" y="310" text-anchor="middle" fill="white" font-size="11" font-weight="600">Business</text>
+                  <text x="65" y="220" text-anchor="middle" fill="white" font-size="11" font-weight="600">Expression</text>
+                  <text x="100" y="130" text-anchor="middle" fill="white" font-size="11" font-weight="600">Clarity</text>
+                </svg>
               </div>
             </div>
           </div>
@@ -1719,24 +1237,62 @@
     </section>
 
     <!-- ====================== PROBLEM SECTION ====================== -->
-    <section class="problem-section healer-section">
-      <div style="position: absolute; inset: 0; background: hsl(var(--background));"></div>
-      <div class="problem-bg-gradient"></div>
+    <section class="healer-section" style="position: relative; overflow: hidden;">
+      <div class="section-bg" style="background: hsl(var(--background));"></div>
+      <div class="section-bg-gradient" style="top: 50%; left: 0; width: 500px; height: 500px; background: linear-gradient(to right, hsl(var(--lavender) / 0.3), transparent); transform: translateY(-50%);"></div>
 
       <div class="healer-container animate-on-scroll" style="position: relative; z-index: 10;">
-        <div class="problem-grid">
-          <div class="problem-image-container">
-            <div class="problem-image-wrapper">
-              <div class="problem-image-glow"></div>
-              <img 
-                src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/e2af7aec-5124-4f88-a83d-0539b7bd7506.jpg" 
-                alt="Illustration of information overload in self-help" 
-                class="problem-image"
-              >
-            </div>
+        <div class="two-col-grid">
+          <div style="order: 2;">
+            <!-- Problem Illustration -->
+            <svg class="scene-illustration" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 32rem; margin: 0 auto;">
+              <defs>
+                <linearGradient id="probBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:hsl(266, 60%, 96%)"/>
+                  <stop offset="100%" style="stop-color:hsl(195, 60%, 96%)"/>
+                </linearGradient>
+              </defs>
+              <rect width="500" height="400" rx="24" fill="url(#probBg)"/>
+              
+              <!-- Person overwhelmed by information -->
+              <g transform="translate(250, 200)">
+                <!-- Head -->
+                <circle cx="0" cy="-50" r="40" fill="#fcd9b6"/>
+                <ellipse cx="0" cy="-45" rx="35" ry="30" fill="#fcd9b6"/>
+                <!-- Hair -->
+                <path d="M-35 -70 Q-40 -100 0 -95 Q40 -100 35 -70" fill="#5a3825"/>
+                <!-- Eyes (overwhelmed) -->
+                <circle cx="-12" cy="-50" r="4" fill="#333"/>
+                <circle cx="12" cy="-50" r="4" fill="#333"/>
+                <!-- Mouth -->
+                <path d="M-8 -35 Q0 -30 8 -35" stroke="#333" stroke-width="2" fill="none"/>
+                <!-- Body -->
+                <rect x="-30" y="-5" width="60" height="80" rx="10" fill="hsl(262, 68%, 50%)"/>
+                <!-- Arms up -->
+                <path d="M-30 10 L-60 -30" stroke="#fcd9b6" stroke-width="12" stroke-linecap="round"/>
+                <path d="M30 10 L60 -30" stroke="#fcd9b6" stroke-width="12" stroke-linecap="round"/>
+              </g>
+              
+              <!-- Floating books/phones/screens around -->
+              <g opacity="0.8">
+                <rect x="80" y="80" width="60" height="80" rx="5" fill="#ec4899" transform="rotate(-15 110 120)"/>
+                <rect x="360" y="100" width="50" height="70" rx="5" fill="#f59e0b" transform="rotate(10 385 135)"/>
+                <rect x="100" y="280" width="55" height="40" rx="5" fill="#22c55e" transform="rotate(5 127 300)"/>
+                <rect x="340" y="260" width="70" height="50" rx="5" fill="hsl(205, 94%, 54%)" transform="rotate(-8 375 285)"/>
+                <rect x="180" y="50" width="40" height="55" rx="5" fill="hsl(274, 89%, 58%)" transform="rotate(20 200 77)"/>
+                <rect x="300" y="40" width="45" height="60" rx="5" fill="#f43f5e" transform="rotate(-25 322 70)"/>
+              </g>
+              
+              <!-- Spiral/chaos lines -->
+              <g stroke="hsl(262, 68%, 50%)" stroke-width="2" fill="none" opacity="0.3">
+                <path d="M150 150 Q200 100 250 150 Q300 200 350 150"/>
+                <path d="M120 250 Q180 200 240 250 Q300 300 360 250"/>
+                <path d="M100 180 Q160 130 220 180"/>
+              </g>
+            </svg>
           </div>
 
-          <div class="problem-content">
+          <div style="order: 1; display: flex; flex-direction: column; gap: 2rem;">
             <span class="badge badge-rose">The Problem</span>
             <h2 class="healer-title">
               Why healing feels <span class="gradient-text">exhausting</span> today
@@ -1758,9 +1314,9 @@
     </section>
 
     <!-- ====================== PHILOSOPHY SECTION ====================== -->
-    <section class="philosophy-section healer-section" id="philosophy">
-      <div class="philosophy-bg"></div>
-      <div class="philosophy-radial"></div>
+    <section class="healer-section" id="philosophy" style="position: relative; overflow: hidden;">
+      <div class="section-bg" style="background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--secondary) / 0.2), hsl(var(--background)));"></div>
+      <div class="section-bg-gradient" style="top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; background: radial-gradient(circle, hsl(var(--violet) / 0.1), transparent);"></div>
 
       <div class="healer-container" style="position: relative; z-index: 10;">
         <div class="section-header animate-on-scroll">
@@ -1770,22 +1326,22 @@
           </h2>
         </div>
 
-        <div class="beliefs-grid stagger-children">
+        <div class="three-col-grid stagger-children">
           <div class="healer-card belief-card">
-            <div class="belief-icon bg-gradient-violet">
-              <i data-lucide="sparkles"></i>
+            <div class="icon-box bg-gradient-violet">
+              <svg width="40" height="40"><use href="#icon-sparkles"/></svg>
             </div>
             <p class="belief-title">Your outer reality reflects inner patterns</p>
           </div>
           <div class="healer-card belief-card">
-            <div class="belief-icon bg-gradient-blue">
-              <i data-lucide="eye"></i>
+            <div class="icon-box bg-gradient-blue">
+              <svg width="40" height="40"><use href="#icon-eye"/></svg>
             </div>
             <p class="belief-title">Awareness without embodiment keeps you stuck</p>
           </div>
           <div class="healer-card belief-card">
-            <div class="belief-icon bg-gradient-pink">
-              <i data-lucide="shield"></i>
+            <div class="icon-box bg-gradient-pink">
+              <svg width="40" height="40"><use href="#icon-shield"/></svg>
             </div>
             <p class="belief-title">You don't need fixing — you need safety</p>
           </div>
@@ -1794,15 +1350,15 @@
     </section>
 
     <!-- ====================== WHAT IS HEALER SECTION ====================== -->
-    <section class="what-is-section healer-section">
-      <div style="position: absolute; inset: 0; background: hsl(var(--background));"></div>
-      <div class="what-is-bg-gradient"></div>
+    <section class="healer-section" style="position: relative; overflow: hidden;">
+      <div class="section-bg" style="background: hsl(var(--background));"></div>
+      <div class="section-bg-gradient" style="bottom: 0; right: 0; width: 600px; height: 600px; background: linear-gradient(to top left, hsl(var(--cyan-soft) / 0.2), transparent);"></div>
 
       <div class="healer-container animate-on-scroll" style="position: relative; z-index: 10;">
-        <div class="what-is-grid">
+        <div class="two-col-grid">
           <div style="display: flex; flex-direction: column; gap: 2rem;">
             <span class="badge badge-violet" style="display: inline-flex; align-items: center; gap: 0.5rem; width: fit-content;">
-              <i data-lucide="sparkles" style="width: 1rem; height: 1rem;"></i>
+              <svg width="16" height="16"><use href="#icon-sparkles"/></svg>
               The Solution
             </span>
             <h2 class="healer-title">
@@ -1811,33 +1367,79 @@
             <div class="benefits-list">
               <div class="benefit-item">
                 <div class="benefit-check">
-                  <i data-lucide="check"></i>
+                  <svg width="16" height="16"><use href="#icon-check"/></svg>
                 </div>
                 <p class="benefit-text">Subscription-based wellness & longevity app</p>
               </div>
               <div class="benefit-item">
                 <div class="benefit-check">
-                  <i data-lucide="check"></i>
+                  <svg width="16" height="16"><use href="#icon-check"/></svg>
                 </div>
                 <p class="benefit-text">Multiple programs for real-world integration</p>
               </div>
               <div class="benefit-item">
                 <div class="benefit-check">
-                  <i data-lucide="check"></i>
+                  <svg width="16" height="16"><use href="#icon-check"/></svg>
                 </div>
                 <p class="benefit-text">No content bingeing — just embodied living</p>
               </div>
             </div>
           </div>
 
-          <div class="app-image-container">
-            <div class="app-image-glow"></div>
-            <img 
-              src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/d7ed1105-72bb-4b95-9257-1c73ad192fd5.png" 
-              alt="Healer mobile app interface" 
-              class="app-image animate-float"
-            >
-            <div class="floating-badge glass-card">
+          <div class="image-glow-container">
+            <div class="image-glow"></div>
+            <!-- App Interface Illustration -->
+            <svg class="animate-float" viewBox="0 0 280 500" xmlns="http://www.w3.org/2000/svg" style="max-width: 16rem; margin: 0 auto; position: relative; z-index: 10; filter: drop-shadow(0 20px 40px hsl(262 50% 30% / 0.2));">
+              <defs>
+                <linearGradient id="phoneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#1a1a2e"/>
+                  <stop offset="100%" style="stop-color:#16213e"/>
+                </linearGradient>
+                <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:hsl(262, 68%, 50%)"/>
+                  <stop offset="100%" style="stop-color:hsl(274, 89%, 58%)"/>
+                </linearGradient>
+              </defs>
+              
+              <!-- Phone frame -->
+              <rect x="10" y="10" width="260" height="480" rx="35" fill="url(#phoneGrad)"/>
+              <rect x="20" y="20" width="240" height="460" rx="28" fill="#0f0f1a"/>
+              
+              <!-- Screen content -->
+              <rect x="30" y="60" width="220" height="120" rx="15" fill="url(#screenGrad)" opacity="0.2"/>
+              <text x="50" y="100" fill="white" font-size="14" font-weight="600">Welcome back</text>
+              <text x="50" y="125" fill="white" font-size="20" font-weight="700">Your Journey</text>
+              <text x="50" y="155" fill="hsl(195, 93%, 77%)" font-size="12">Day 14 of transformation</text>
+              
+              <!-- Progress cards -->
+              <rect x="30" y="195" width="100" height="80" rx="12" fill="url(#wheelGrad1)" opacity="0.9"/>
+              <text x="45" y="225" fill="white" font-size="11" font-weight="600">Life Purpose</text>
+              <text x="45" y="255" fill="white" font-size="18" font-weight="700">78%</text>
+              
+              <rect x="150" y="195" width="100" height="80" rx="12" fill="url(#wheelGrad4)" opacity="0.9"/>
+              <text x="165" y="225" fill="white" font-size="11" font-weight="600">Health</text>
+              <text x="165" y="255" fill="white" font-size="18" font-weight="700">85%</text>
+              
+              <!-- Today's practice -->
+              <rect x="30" y="290" width="220" height="90" rx="15" fill="#1e1e3a"/>
+              <text x="50" y="320" fill="white" font-size="12" font-weight="600">Today's Practice</text>
+              <text x="50" y="345" fill="hsl(var(--muted-foreground))" font-size="11">Nervous System Reset</text>
+              <circle cx="220" cy="335" r="20" fill="url(#screenGrad)"/>
+              <path d="M215 330 L227 335 L215 340 Z" fill="white"/>
+              
+              <!-- AI Chat preview -->
+              <rect x="30" y="395" width="220" height="70" rx="15" fill="#1e1e3a"/>
+              <circle cx="55" cy="430" r="18" fill="url(#screenGrad)"/>
+              <text x="80" y="420" fill="white" font-size="11" font-weight="600">Ask Riyan</text>
+              <text x="80" y="440" fill="hsl(var(--muted-foreground))" font-size="10">Your AI companion is here...</text>
+              
+              <!-- Status bar -->
+              <text x="40" y="45" fill="white" font-size="11">9:41</text>
+              <circle cx="220" cy="40" r="3" fill="#22c55e"/>
+              <rect x="230" y="37" width="20" height="8" rx="2" fill="white" opacity="0.8"/>
+            </svg>
+            
+            <div class="floating-badge glass-card" style="top: -1rem; left: -1rem; display: none;">
               <div class="floating-badge-content">
                 <div class="floating-badge-dot"></div>
                 <span>Live Now</span>
@@ -1849,8 +1451,8 @@
     </section>
 
     <!-- ====================== PROGRAMS SECTION ====================== -->
-    <section class="programs-section healer-section" id="programs">
-      <div class="programs-bg"></div>
+    <section class="healer-section" id="programs" style="position: relative; overflow: hidden;">
+      <div class="section-bg" style="background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--secondary) / 0.2), hsl(var(--background)));"></div>
       <div class="blob" style="top: 0; left: 0; width: 500px; height: 500px; background: linear-gradient(to bottom right, hsl(var(--cyan-soft) / 0.2), transparent);"></div>
       <div class="blob" style="bottom: 0; right: 0; width: 500px; height: 500px; background: linear-gradient(to top left, hsl(var(--violet) / 0.2), transparent);"></div>
 
@@ -1864,38 +1466,38 @@
 
         <div class="programs-grid stagger-children">
           <div class="healer-card program-card">
-            <div class="program-icon bg-gradient-violet">
-              <i data-lucide="compass"></i>
+            <div class="icon-box icon-box-sm bg-gradient-violet">
+              <svg width="32" height="32"><use href="#icon-compass"/></svg>
             </div>
             <p class="program-title">Life Purpose & Inner Clarity</p>
           </div>
           <div class="healer-card program-card">
-            <div class="program-icon bg-gradient-blue">
-              <i data-lucide="briefcase"></i>
+            <div class="icon-box icon-box-sm bg-gradient-blue">
+              <svg width="32" height="32"><use href="#icon-briefcase"/></svg>
             </div>
             <p class="program-title">Career & World's Highest-Paid Skills</p>
           </div>
           <div class="healer-card program-card">
-            <div class="program-icon bg-gradient-pink">
-              <i data-lucide="heart"></i>
+            <div class="icon-box icon-box-sm bg-gradient-pink">
+              <svg width="32" height="32"><use href="#icon-heart"/></svg>
             </div>
             <p class="program-title">Emotional Healing & Nervous System</p>
           </div>
           <div class="healer-card program-card">
-            <div class="program-icon bg-gradient-green">
-              <i data-lucide="leaf"></i>
+            <div class="icon-box icon-box-sm bg-gradient-green">
+              <svg width="32" height="32"><use href="#icon-leaf"/></svg>
             </div>
             <p class="program-title">Health & Longevity</p>
           </div>
           <div class="healer-card program-card">
-            <div class="program-icon bg-gradient-amber">
-              <i data-lucide="lightbulb"></i>
+            <div class="icon-box icon-box-sm bg-gradient-amber">
+              <svg width="32" height="32"><use href="#icon-lightbulb"/></svg>
             </div>
             <p class="program-title">Conscious Entrepreneurship</p>
           </div>
           <div class="healer-card program-card">
-            <div class="program-icon bg-gradient-purple">
-              <i data-lucide="book-open"></i>
+            <div class="icon-box icon-box-sm bg-gradient-purple">
+              <svg width="32" height="32"><use href="#icon-book-open"/></svg>
             </div>
             <p class="program-title">Book Publishing & Expression</p>
           </div>
@@ -1904,10 +1506,9 @@
     </section>
 
     <!-- ====================== AI COMPANION SECTION ====================== -->
-    <section class="ai-section healer-section">
-      <div class="ai-bg"></div>
+    <section class="healer-section" style="position: relative; overflow: hidden;">
+      <div class="section-bg" style="background: linear-gradient(to bottom right, hsl(var(--secondary) / 0.3), hsl(var(--background)), hsl(var(--accent) / 0.2));"></div>
       <div class="blob" style="top: 0; right: 0; width: 600px; height: 600px; background: linear-gradient(to bottom left, hsl(var(--violet) / 0.1), transparent);"></div>
-      <div class="blob" style="bottom: 0; left: 0; width: 400px; height: 400px; background: linear-gradient(to top right, hsl(var(--cyan-soft) / 0.2), transparent);"></div>
 
       <div class="healer-container" style="position: relative; z-index: 10;">
         <div class="section-header animate-on-scroll">
@@ -1920,35 +1521,82 @@
           </p>
         </div>
 
-        <div class="ai-grid">
-          <div class="ai-image-container animate-on-scroll">
-            <div class="ai-image-glow"></div>
-            <div class="ai-image-wrapper">
-              <img 
-                src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/f1f4d59d-b16e-4a11-9c6d-5bbf44aeec52.jpg" 
-                alt="AI Companion Riyan - Transformation through AI Life Coaching" 
-                class="ai-image"
-              >
-              <div class="ai-image-overlay"></div>
-            </div>
-            <div class="ai-floating-badge glass-card">
-              <div class="ai-badge-content">
-                <div class="ai-badge-icon">
-                  <i data-lucide="heart"></i>
+        <div class="two-col-grid">
+          <div class="image-glow-container animate-on-scroll">
+            <div class="image-glow"></div>
+            <!-- AI Companion Illustration -->
+            <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width: 20rem; margin: 0 auto; position: relative; z-index: 10; border-radius: 1.5rem; filter: drop-shadow(0 20px 40px hsl(262 50% 30% / 0.2));">
+              <defs>
+                <linearGradient id="aiBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:hsl(262, 68%, 45%)"/>
+                  <stop offset="100%" style="stop-color:hsl(274, 89%, 50%)"/>
+                </linearGradient>
+                <radialGradient id="glowCenter" cx="50%" cy="30%" r="60%">
+                  <stop offset="0%" style="stop-color:hsl(195, 93%, 77%);stop-opacity:0.4"/>
+                  <stop offset="100%" style="stop-color:transparent"/>
+                </radialGradient>
+              </defs>
+              
+              <!-- Background -->
+              <rect width="400" height="500" rx="24" fill="url(#aiBg)"/>
+              <rect width="400" height="500" rx="24" fill="url(#glowCenter)"/>
+              
+              <!-- Abstract AI representation -->
+              <g transform="translate(200, 220)">
+                <!-- Outer glow rings -->
+                <circle cx="0" cy="0" r="120" fill="none" stroke="white" stroke-width="1" opacity="0.2"/>
+                <circle cx="0" cy="0" r="100" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
+                <circle cx="0" cy="0" r="80" fill="none" stroke="white" stroke-width="2" opacity="0.4"/>
+                
+                <!-- Central orb -->
+                <circle cx="0" cy="0" r="60" fill="white" opacity="0.9"/>
+                <circle cx="0" cy="0" r="50" fill="url(#wheelGrad2)" opacity="0.8"/>
+                
+                <!-- Face features (friendly AI) -->
+                <circle cx="-15" cy="-10" r="8" fill="white"/>
+                <circle cx="15" cy="-10" r="8" fill="white"/>
+                <circle cx="-15" cy="-10" r="4" fill="hsl(262, 68%, 50%)"/>
+                <circle cx="15" cy="-10" r="4" fill="hsl(262, 68%, 50%)"/>
+                
+                <!-- Smile -->
+                <path d="M-20 15 Q0 35 20 15" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
+                
+                <!-- Floating elements around -->
+                <g opacity="0.6">
+                  <circle cx="-90" cy="-50" r="8" fill="hsl(195, 93%, 77%)"/>
+                  <circle cx="95" cy="-30" r="6" fill="hsl(274, 89%, 70%)"/>
+                  <circle cx="-70" cy="60" r="5" fill="white"/>
+                  <circle cx="80" cy="70" r="7" fill="hsl(195, 93%, 77%)"/>
+                  <circle cx="0" cy="-100" r="4" fill="white"/>
+                </g>
+              </g>
+              
+              <!-- Text -->
+              <text x="200" y="400" text-anchor="middle" fill="white" font-size="24" font-weight="700">Riyan</text>
+              <text x="200" y="430" text-anchor="middle" fill="white" font-size="14" opacity="0.8">Your AI Life Coach</text>
+              
+              <!-- Decorative lines -->
+              <path d="M50 470 Q200 450 350 470" stroke="white" stroke-width="1" fill="none" opacity="0.3"/>
+            </svg>
+            
+            <div class="floating-badge glass-card" style="bottom: -1rem; right: -1rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <div class="icon-box" style="width: 2.5rem; height: 2.5rem; margin: 0; background: var(--gradient-accent);">
+                  <svg width="20" height="20"><use href="#icon-heart"/></svg>
                 </div>
-                <div class="ai-badge-text">
-                  <p>Always Available</p>
-                  <p>24/7 Support</p>
+                <div>
+                  <p style="font-size: 0.875rem; font-weight: 600; color: hsl(var(--foreground));">Always Available</p>
+                  <p style="font-size: 0.75rem; color: hsl(var(--muted-foreground));">24/7 Support</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="features-list stagger-children">
+          <div style="display: flex; flex-direction: column; gap: 1.5rem;" class="stagger-children">
             <div class="feature-card">
               <div class="feature-content">
                 <div class="feature-icon bg-gradient-pink">
-                  <i data-lucide="heart"></i>
+                  <svg width="28" height="28"><use href="#icon-heart"/></svg>
                 </div>
                 <div class="feature-text">
                   <h3>A life coach that's always there</h3>
@@ -1959,7 +1607,7 @@
             <div class="feature-card">
               <div class="feature-content">
                 <div class="feature-icon bg-gradient-amber">
-                  <i data-lucide="lightbulb"></i>
+                  <svg width="28" height="28"><use href="#icon-lightbulb"/></svg>
                 </div>
                 <div class="feature-text">
                   <h3>Helps you through real moments, not just theory</h3>
@@ -1970,7 +1618,7 @@
             <div class="feature-card">
               <div class="feature-content">
                 <div class="feature-icon bg-gradient-violet">
-                  <i data-lucide="rocket"></i>
+                  <svg width="28" height="28"><use href="#icon-rocket"/></svg>
                 </div>
                 <div class="feature-text">
                   <h3>Turns knowing into doing</h3>
@@ -1984,18 +1632,82 @@
     </section>
 
     <!-- ====================== DIFFERENTIATOR SECTION ====================== -->
-    <section class="diff-section healer-section">
+    <section class="healer-section" style="background: hsl(var(--background));">
       <div class="healer-container animate-on-scroll">
-        <div class="diff-grid">
-          <div class="diff-image-container">
-            <img 
-              src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/e2af7aec-5124-4f88-a83d-0539b7bd7506.jpg" 
-              alt="Contrast between chaos and calm grounded space" 
-              class="diff-image"
-            >
+        <div class="two-col-grid">
+          <div style="order: 2;">
+            <!-- Differentiator Illustration -->
+            <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; border-radius: 1.5rem; filter: drop-shadow(0 10px 30px hsl(262 50% 30% / 0.1));">
+              <defs>
+                <linearGradient id="calmBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:hsl(266, 60%, 96%)"/>
+                  <stop offset="100%" style="stop-color:hsl(195, 60%, 96%)"/>
+                </linearGradient>
+              </defs>
+              <rect width="500" height="400" rx="24" fill="url(#calmBg)"/>
+              
+              <!-- Calm scene - person in nature -->
+              <g transform="translate(250, 280)">
+                <!-- Ground -->
+                <ellipse cx="0" cy="80" rx="180" ry="30" fill="#d1fae5" opacity="0.6"/>
+                
+                <!-- Trees -->
+                <g transform="translate(-120, -50)">
+                  <rect x="-5" y="40" width="10" height="60" fill="#92400e"/>
+                  <circle cx="0" cy="20" r="35" fill="#22c55e"/>
+                  <circle cx="-20" cy="35" r="25" fill="#16a34a"/>
+                  <circle cx="20" cy="35" r="25" fill="#16a34a"/>
+                </g>
+                <g transform="translate(130, -30)">
+                  <rect x="-4" y="30" width="8" height="50" fill="#92400e"/>
+                  <circle cx="0" cy="10" r="30" fill="#22c55e"/>
+                  <circle cx="-15" cy="25" r="20" fill="#16a34a"/>
+                  <circle cx="15" cy="25" r="20" fill="#16a34a"/>
+                </g>
+                
+                <!-- Person meditating -->
+                <g>
+                  <!-- Legs crossed -->
+                  <ellipse cx="0" cy="50" rx="40" ry="15" fill="hsl(262, 68%, 50%)"/>
+                  <!-- Body -->
+                  <ellipse cx="0" cy="20" rx="25" ry="35" fill="hsl(262, 68%, 50%)"/>
+                  <!-- Head -->
+                  <circle cx="0" cy="-30" r="25" fill="#fcd9b6"/>
+                  <!-- Hair -->
+                  <path d="M-22 -45 Q-25 -60 0 -58 Q25 -60 22 -45" fill="#5a3825"/>
+                  <!-- Eyes closed peacefully -->
+                  <path d="M-10 -30 Q-7 -28 -4 -30" stroke="#333" stroke-width="2" fill="none"/>
+                  <path d="M4 -30 Q7 -28 10 -30" stroke="#333" stroke-width="2" fill="none"/>
+                  <!-- Peaceful smile -->
+                  <path d="M-5 -20 Q0 -17 5 -20" stroke="#333" stroke-width="1.5" fill="none"/>
+                  <!-- Hands in lap -->
+                  <circle cx="-15" cy="35" r="10" fill="#fcd9b6"/>
+                  <circle cx="15" cy="35" r="10" fill="#fcd9b6"/>
+                </g>
+                
+                <!-- Aura/glow around person -->
+                <circle cx="0" cy="0" r="80" fill="none" stroke="hsl(262, 68%, 50%)" stroke-width="2" opacity="0.2"/>
+                <circle cx="0" cy="0" r="100" fill="none" stroke="hsl(195, 93%, 77%)" stroke-width="1" opacity="0.3"/>
+              </g>
+              
+              <!-- Sun -->
+              <circle cx="400" cy="80" r="40" fill="#fbbf24" opacity="0.8"/>
+              <g stroke="#fbbf24" stroke-width="3" opacity="0.6">
+                <line x1="400" y1="20" x2="400" y2="35"/>
+                <line x1="400" y1="125" x2="400" y2="140"/>
+                <line x1="340" y1="80" x2="355" y2="80"/>
+                <line x1="445" y1="80" x2="460" y2="80"/>
+              </g>
+              
+              <!-- Birds -->
+              <g fill="none" stroke="#6b7280" stroke-width="2">
+                <path d="M80 100 Q90 90 100 100 Q110 90 120 100"/>
+                <path d="M130 80 Q138 72 146 80 Q154 72 162 80"/>
+              </g>
+            </svg>
           </div>
 
-          <div class="diff-content">
+          <div style="order: 1; display: flex; flex-direction: column; gap: 2rem;">
             <h2 class="healer-title">
               Not just content.
               <span class="gradient-text" style="display: block;">A living ecosystem.</span>
@@ -2021,7 +1733,7 @@
 
     <!-- ====================== PARTNERSHIP SECTION ====================== -->
     <section class="partners-section">
-      <div class="partners-bg"></div>
+      <div class="section-bg" style="background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--secondary) / 0.2), hsl(var(--background)));"></div>
 
       <div class="healer-container" style="position: relative; z-index: 10;">
         <div class="section-header animate-on-scroll">
@@ -2036,46 +1748,92 @@
 
         <div class="partners-grid stagger-children">
           <div class="partner-card">
-            <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&h=80&fit=crop&auto=format" alt="DST NIDHI" class="partner-logo">
+            <p class="partner-name">DST NIDHI</p>
           </div>
           <div class="partner-card">
-            <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&h=80&fit=crop&auto=format" alt="IIT Madras" class="partner-logo">
+            <p class="partner-name">IIT Madras</p>
           </div>
           <div class="partner-card">
-            <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&h=80&fit=crop&auto=format" alt="IITM Research Park" class="partner-logo">
+            <p class="partner-name">IITM Research Park</p>
           </div>
           <div class="partner-card">
-            <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&h=80&fit=crop&auto=format" alt="Vel Tech" class="partner-logo">
+            <p class="partner-name">Vel Tech</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ====================== FOUNDER SECTION ====================== -->
-    <section class="founder-section healer-section" id="about">
-      <div class="founder-bg"></div>
-      <div class="founder-bg-gradient"></div>
+    <section class="healer-section" id="about" style="position: relative; overflow: hidden;">
+      <div class="section-bg" style="background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--secondary) / 0.2), hsl(var(--background)));"></div>
+      <div class="section-bg-gradient" style="top: 50%; right: 0; width: 600px; height: 600px; background: linear-gradient(to left, hsl(var(--lavender) / 0.3), transparent); transform: translateY(-50%);"></div>
 
       <div class="healer-container animate-on-scroll" style="position: relative; z-index: 10;">
-        <div class="founder-wrapper">
+        <div style="max-width: 64rem; margin: 0 auto;">
           <div class="founder-grid">
-            <div class="founder-image-container">
-              <div class="founder-image-glow"></div>
-              <img 
-                src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/f1f4d59d-b16e-4a11-9c6d-5bbf44aeec52.jpg" 
-                alt="Mira, Founder of Healer" 
-                class="founder-image"
-              >
+            <div class="image-glow-container">
+              <div class="image-glow"></div>
+              <!-- Founder Illustration -->
+              <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 16rem; margin: 0 auto; position: relative; z-index: 10; border-radius: 1.5rem; filter: drop-shadow(0 20px 40px hsl(262 50% 30% / 0.2));">
+                <defs>
+                  <linearGradient id="founderBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:hsl(266, 60%, 94%)"/>
+                    <stop offset="100%" style="stop-color:hsl(195, 60%, 94%)"/>
+                  </linearGradient>
+                </defs>
+                <rect width="300" height="400" rx="24" fill="url(#founderBg)"/>
+                
+                <!-- Person -->
+                <g transform="translate(150, 250)">
+                  <!-- Body -->
+                  <path d="M-50 30 Q-60 80 -40 120 L40 120 Q60 80 50 30 Q30 20 0 20 Q-30 20 -50 30" fill="hsl(262, 68%, 50%)"/>
+                  
+                  <!-- Neck -->
+                  <rect x="-15" y="-10" width="30" height="35" fill="#fcd9b6"/>
+                  
+                  <!-- Head -->
+                  <ellipse cx="0" cy="-50" rx="45" ry="55" fill="#fcd9b6"/>
+                  
+                  <!-- Hair -->
+                  <path d="M-45 -70 Q-50 -120 0 -115 Q50 -120 45 -70 Q40 -85 0 -90 Q-40 -85 -45 -70" fill="#3d2314"/>
+                  <path d="M-45 -70 Q-55 -40 -48 -30" fill="#3d2314"/>
+                  <path d="M45 -70 Q55 -40 48 -30" fill="#3d2314"/>
+                  
+                  <!-- Eyes -->
+                  <ellipse cx="-15" cy="-55" rx="6" ry="8" fill="white"/>
+                  <ellipse cx="15" cy="-55" rx="6" ry="8" fill="white"/>
+                  <circle cx="-15" cy="-54" r="4" fill="#4a3728"/>
+                  <circle cx="15" cy="-54" r="4" fill="#4a3728"/>
+                  
+                  <!-- Eyebrows -->
+                  <path d="M-25 -68 Q-15 -72 -5 -68" stroke="#3d2314" stroke-width="2" fill="none"/>
+                  <path d="M5 -68 Q15 -72 25 -68" stroke="#3d2314" stroke-width="2" fill="none"/>
+                  
+                  <!-- Nose -->
+                  <path d="M0 -50 L0 -35 Q-5 -30 0 -28 Q5 -30 0 -35" stroke="#e5c4a8" stroke-width="2" fill="none"/>
+                  
+                  <!-- Warm smile -->
+                  <path d="M-15 -18 Q0 -8 15 -18" stroke="#c9846e" stroke-width="3" fill="none" stroke-linecap="round"/>
+                  
+                  <!-- Earrings -->
+                  <circle cx="-48" cy="-40" r="5" fill="#fbbf24"/>
+                  <circle cx="48" cy="-40" r="5" fill="#fbbf24"/>
+                </g>
+                
+                <!-- Decorative elements -->
+                <circle cx="50" cy="60" r="20" fill="hsl(262, 68%, 50%)" opacity="0.2"/>
+                <circle cx="250" cy="100" r="15" fill="hsl(195, 93%, 77%)" opacity="0.3"/>
+              </svg>
             </div>
 
-            <div class="founder-content">
+            <div style="display: flex; flex-direction: column; gap: 2rem;">
               <span class="badge badge-violet">Our Story</span>
               <h2 class="healer-title">
                 Why <span class="gradient-text">Healer</span> was born
               </h2>
 
               <div class="quote-container">
-                <i data-lucide="quote" class="quote-icon"></i>
+                <svg class="quote-icon"><use href="#icon-quote"/></svg>
                 <div class="quote-content">
                   <p class="healer-body">
                     Healer was created from lived pain, loss, and years inside the personal growth world.
@@ -2103,8 +1861,8 @@
     </section>
 
     <!-- ====================== CTA SECTION ====================== -->
-    <section class="cta-section healer-section">
-      <div class="cta-bg"></div>
+    <section class="healer-section" style="position: relative; overflow: hidden;">
+      <div class="section-bg" style="background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--violet) / 0.05), hsl(var(--secondary) / 0.3));"></div>
       <div class="blob animate-pulse-soft" style="top: 0; left: 25%; width: 500px; height: 500px; background: linear-gradient(to bottom right, hsl(var(--violet) / 0.2), transparent);"></div>
       <div class="blob animate-pulse-soft" style="bottom: 0; right: 25%; width: 400px; height: 400px; background: linear-gradient(to top left, hsl(var(--cyan-soft) / 0.3), transparent); animation-delay: 2s;"></div>
 
@@ -2115,7 +1873,7 @@
             Start your healing journey <span class="gradient-text">differently</span>
           </h2>
 
-          <div class="cta-text">
+          <div style="max-width: 42rem; margin: 0 auto;">
             <p class="healer-body" style="font-size: 1.25rem;">
               This isn't another app to consume.
             </p>
@@ -2128,18 +1886,59 @@
             <a href="https://form.typeform.com/to/Uujm1fxF" target="_blank" rel="noopener noreferrer">
               <button class="btn-hero">
                 Join Early Access
-                <i data-lucide="arrow-right" style="width: 1.25rem; height: 1.25rem;"></i>
+                <svg width="20" height="20"><use href="#icon-arrow-right"/></svg>
               </button>
             </a>
           </div>
 
-          <div class="cta-image-container">
-            <div class="cta-image-glow"></div>
-            <img 
-              src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/e2af7aec-5124-4f88-a83d-0539b7bd7506.jpg" 
-              alt="Walking toward healing and coming home" 
-              class="cta-image"
-            >
+          <div style="padding-top: 3rem;">
+            <!-- CTA Illustration -->
+            <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="max-width: 48rem; margin: 0 auto; border-radius: 1.5rem; filter: drop-shadow(0 20px 40px hsl(262 50% 30% / 0.15));">
+              <defs>
+                <linearGradient id="ctaBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:hsl(262, 68%, 50%)"/>
+                  <stop offset="100%" style="stop-color:hsl(274, 89%, 58%)"/>
+                </linearGradient>
+                <linearGradient id="pathGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:hsl(195, 93%, 77%)"/>
+                  <stop offset="100%" style="stop-color:white"/>
+                </linearGradient>
+              </defs>
+              <rect width="600" height="300" rx="24" fill="url(#ctaBg)"/>
+              
+              <!-- Path/journey line -->
+              <path d="M50 250 Q150 200 200 220 Q250 240 300 180 Q350 120 400 150 Q450 180 550 100" stroke="url(#pathGrad)" stroke-width="4" fill="none" stroke-linecap="round"/>
+              
+              <!-- Dots along path -->
+              <circle cx="50" cy="250" r="8" fill="white"/>
+              <circle cx="200" cy="220" r="6" fill="hsl(195, 93%, 77%)"/>
+              <circle cx="300" cy="180" r="6" fill="hsl(195, 93%, 77%)"/>
+              <circle cx="400" cy="150" r="6" fill="hsl(195, 93%, 77%)"/>
+              <circle cx="550" cy="100" r="12" fill="white"/>
+              
+              <!-- Star at end -->
+              <g transform="translate(550, 100)">
+                <path d="M0 -20 L5 -5 L20 -5 L8 5 L12 20 L0 10 L-12 20 L-8 5 L-20 -5 L-5 -5 Z" fill="#fbbf24"/>
+              </g>
+              
+              <!-- Person walking -->
+              <g transform="translate(280, 160)">
+                <circle cx="0" cy="-25" r="15" fill="#fcd9b6"/>
+                <path d="M-10 -5 L-15 40 M10 -5 L20 35" stroke="#fcd9b6" stroke-width="8" stroke-linecap="round"/>
+                <rect x="-12" y="-10" width="24" height="30" rx="8" fill="hsl(262, 68%, 40%)"/>
+              </g>
+              
+              <!-- Clouds -->
+              <g fill="white" opacity="0.3">
+                <ellipse cx="100" cy="60" rx="40" ry="20"/>
+                <ellipse cx="130" cy="55" rx="30" ry="18"/>
+                <ellipse cx="480" cy="40" rx="35" ry="18"/>
+                <ellipse cx="510" cy="35" rx="25" ry="15"/>
+              </g>
+              
+              <!-- Text -->
+              <text x="300" y="280" text-anchor="middle" fill="white" font-size="16" font-weight="600" opacity="0.9">Your journey begins here</text>
+            </svg>
           </div>
         </div>
       </div>
@@ -2153,7 +1952,20 @@
       <div class="footer-main">
         <div class="footer-brand">
           <div class="footer-logo">
-            <img src="https://id-preview--0a72bea0-9360-4edb-9473-8bb95ff0bd09.lovable.app/lovable-uploads/d7ed1105-72bb-4b95-9257-1c73ad192fd5.png" alt="Healer" style="border-radius: 8px;">
+            <!-- Logo SVG -->
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 3rem; height: 3rem;">
+              <defs>
+                <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:hsl(262, 68%, 50%)"/>
+                  <stop offset="50%" style="stop-color:hsl(274, 89%, 58%)"/>
+                  <stop offset="100%" style="stop-color:hsl(205, 94%, 54%)"/>
+                </linearGradient>
+              </defs>
+              <circle cx="50" cy="50" r="45" fill="url(#footerLogoGrad)"/>
+              <path d="M50 25C50 25 35 35 35 50C35 58 40 65 50 70C60 65 65 58 65 50C65 35 50 25 50 25Z" fill="white" opacity="0.9"/>
+              <circle cx="50" cy="48" r="8" fill="white"/>
+              <path d="M50 60C50 60 42 55 42 48C42 43 46 40 50 40C54 40 58 43 58 48C58 55 50 60 50 60Z" fill="url(#footerLogoGrad)" opacity="0.6"/>
+            </svg>
             <span>Healer</span>
           </div>
           <p class="footer-tagline">Because healing is meant to be lived.</p>
@@ -2167,7 +1979,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-copyright">© 2024 Healer. All rights reserved.</p>
+        <p class="footer-copyright">© <span id="year">2024</span> Healer. All rights reserved.</p>
         <p class="footer-made-with">
           Made with 
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -2181,9 +1993,6 @@
 
   <!-- ====================== JAVASCRIPT ====================== -->
   <script>
-    // Initialize Lucide icons
-    lucide.createIcons();
-
     // Header scroll effect
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
@@ -2197,14 +2006,14 @@
     // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    const menuIcon = document.getElementById('menuIcon');
     let isMenuOpen = false;
 
     mobileMenuBtn.addEventListener('click', () => {
       isMenuOpen = !isMenuOpen;
       mobileMenu.classList.toggle('open', isMenuOpen);
-      menuIcon.setAttribute('data-lucide', isMenuOpen ? 'x' : 'menu');
-      lucide.createIcons();
+      mobileMenuBtn.innerHTML = isMenuOpen 
+        ? '<svg width="24" height="24"><use href="#icon-x"/></svg>'
+        : '<svg width="24" height="24"><use href="#icon-menu"/></svg>';
     });
 
     // Close mobile menu when clicking a link
@@ -2213,8 +2022,7 @@
       link.addEventListener('click', () => {
         isMenuOpen = false;
         mobileMenu.classList.remove('open');
-        menuIcon.setAttribute('data-lucide', 'menu');
-        lucide.createIcons();
+        mobileMenuBtn.innerHTML = '<svg width="24" height="24"><use href="#icon-menu"/></svg>';
       });
     });
 
@@ -2252,7 +2060,7 @@
     });
 
     // Update copyright year
-    document.querySelector('.footer-copyright').textContent = `© ${new Date().getFullYear()} Healer. All rights reserved.`;
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
