@@ -77,7 +77,7 @@
       line-height: 1.6;
     }
 
-    img, svg {
+    img, svg, video {
       max-width: 100%;
       height: auto;
       display: block;
@@ -299,11 +299,11 @@
     }
 
     .header.scrolled {
-      background: hsl(var(--background) / 0.8);
+      background: hsl(var(--background) / 0.9);
       backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       box-shadow: var(--shadow-soft);
       padding: 0.75rem 0;
-      border-bottom: 1px solid hsl(var(--border) / 0.5);
     }
 
     .header-content {
@@ -319,112 +319,117 @@
     }
 
     .logo-icon {
-      width: 2.75rem;
       height: 2.75rem;
-      transition: transform 0.3s ease;
+      width: 2.75rem;
     }
 
-    .logo:hover .logo-icon { transform: scale(1.05); }
-
     .logo span {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: hsl(var(--foreground));
-      letter-spacing: -0.02em;
     }
 
     .nav-desktop {
       display: none;
-      align-items: center;
-      gap: 2.5rem;
     }
 
-    @media (min-width: 768px) { .nav-desktop { display: flex; } }
+    @media (min-width: 768px) {
+      .nav-desktop {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+      }
+    }
 
     .nav-link {
-      color: hsl(var(--muted-foreground));
+      font-size: 0.9375rem;
       font-weight: 500;
+      color: hsl(var(--foreground));
       transition: color 0.3s ease;
+      position: relative;
     }
 
-    .nav-link:hover { color: hsl(var(--violet)); }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-accent);
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
 
-    .header-cta { display: none; }
-    @media (min-width: 768px) { .header-cta { display: block; } }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:hover {
+      color: hsl(var(--primary));
+    }
+
+    .header-cta {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .header-cta { display: block; }
+    }
 
     .mobile-menu-btn {
-      display: block;
-      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
       background: transparent;
       color: hsl(var(--foreground));
-      border-radius: 0.75rem;
+    }
+
+    @media (min-width: 768px) {
+      .mobile-menu-btn { display: none; }
+    }
+
+    .mobile-menu {
+      position: absolute;
+      top: 100%;
+      left: 1rem;
+      right: 1rem;
+      background: hsl(var(--card));
+      border-radius: 1rem;
+      padding: 1rem;
+      box-shadow: var(--shadow-card);
+      border: 1px solid hsl(var(--border));
+      display: none;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-nav-link {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      font-weight: 500;
+      color: hsl(var(--foreground));
+      border-radius: 0.5rem;
       transition: background 0.3s ease;
     }
 
-    .mobile-menu-btn:hover { background: hsl(var(--secondary) / 0.5); }
-    @media (min-width: 768px) { .mobile-menu-btn { display: none; } }
-
-    .mobile-menu {
-      display: none;
-      margin-top: 1.5rem;
-      padding: 1rem 0.5rem;
-      background: hsl(var(--card) / 0.8);
-      backdrop-filter: blur(16px);
-      border-radius: 1rem;
-      border: 1px solid hsl(var(--border) / 0.5);
-    }
-
-    .mobile-menu.open { display: block; }
-    @media (min-width: 768px) { .mobile-menu { display: none !important; } }
-
-    .mobile-nav-link {
-      display: block;
-      padding: 0.75rem 1rem;
-      color: hsl(var(--muted-foreground));
-      font-weight: 500;
-      border-radius: 0.75rem;
-      transition: all 0.3s ease;
-    }
-
     .mobile-nav-link:hover {
-      color: hsl(var(--violet));
-      background: hsl(var(--secondary) / 0.5);
+      background: hsl(var(--muted));
     }
 
-    /* ====================== SVG ILLUSTRATIONS ====================== */
-    .illustration-container {
-      position: relative;
-      width: 100%;
-      max-width: 24rem;
-      margin: 0 auto;
-    }
-
-    .wheel-illustration {
-      width: 100%;
-      height: auto;
-      filter: drop-shadow(0 20px 40px hsl(262 50% 30% / 0.2));
-    }
-
-    .person-illustration {
-      width: 100%;
-      max-width: 20rem;
-      height: auto;
-    }
-
-    .scene-illustration {
-      width: 100%;
-      max-width: 32rem;
-      height: auto;
-      border-radius: 1.5rem;
-      overflow: hidden;
-    }
-
-    /* ====================== SECTION STYLES ====================== */
+    /* ====================== HERO ====================== */
     .hero {
       position: relative;
       min-height: 100vh;
       display: flex;
       align-items: center;
+      padding-top: 6rem;
       overflow: hidden;
     }
 
@@ -444,35 +449,42 @@
     .hero-content {
       position: relative;
       z-index: 10;
-      padding-top: 7rem;
-      padding-bottom: 5rem;
     }
 
     .hero-grid {
       display: grid;
-      gap: 4rem;
+      gap: 3rem;
       align-items: center;
     }
 
-    @media (min-width: 1024px) { .hero-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+    }
 
     .hero-text {
       display: flex;
       flex-direction: column;
-      gap: 2.5rem;
+      gap: 2rem;
     }
 
     .trust-badges {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
-      padding-top: 1rem;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
     .trust-badge {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: hsl(var(--card));
+      border-radius: 9999px;
+      box-shadow: var(--shadow-soft);
     }
 
     .trust-badge-dot {
@@ -480,27 +492,25 @@
       height: 0.5rem;
       border-radius: 50%;
       background: #22c55e;
+      animation: pulse-soft 2s ease-in-out infinite;
     }
 
     .trust-badge span {
       font-size: 0.875rem;
-      color: hsl(var(--muted-foreground));
+      font-weight: 500;
+      color: hsl(var(--foreground));
     }
 
     .trust-divider {
       width: 1px;
-      height: 1rem;
+      height: 1.5rem;
       background: hsl(var(--border));
     }
 
     .hero-image-container {
-      position: relative;
       display: flex;
-      align-items: center;
       justify-content: center;
     }
-
-    @media (min-width: 1024px) { .hero-image-container { justify-content: flex-end; } }
 
     .hero-image-wrapper {
       position: relative;
@@ -508,14 +518,27 @@
 
     .hero-image-glow {
       position: absolute;
-      inset: -20%;
-      border-radius: 50%;
-      filter: blur(60px);
-      opacity: 0.4;
-      background: linear-gradient(to bottom right, hsl(var(--violet)), hsl(var(--cyan-soft)));
+      inset: -3rem;
+      background: radial-gradient(circle, hsl(var(--primary) / 0.15), transparent 70%);
+      filter: blur(40px);
     }
 
-    /* Section backgrounds */
+    .wheel-illustration {
+      width: 100%;
+      max-width: 24rem;
+      height: auto;
+      position: relative;
+      z-index: 10;
+      filter: drop-shadow(0 20px 40px hsl(262 50% 30% / 0.2));
+    }
+
+    .hero-decorative {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(30px);
+    }
+
+    /* ====================== SECTIONS ====================== */
     .section-bg {
       position: absolute;
       inset: 0;
@@ -529,115 +552,92 @@
 
     .section-header {
       text-align: center;
-      margin-bottom: 4rem;
+      max-width: 48rem;
+      margin: 0 auto 4rem;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      border-radius: 9999px;
-      font-size: 0.875rem;
-      font-weight: 600;
-    }
-
-    .badge-rose { background: hsl(350 80% 95%); color: hsl(350 80% 45%); }
-    .badge-violet { background: hsl(var(--violet) / 0.1); color: hsl(var(--violet)); }
-    .badge-cyan { background: hsl(var(--cyan-soft) / 0.2); color: hsl(var(--blue-ocean)); }
-
-    .highlight-box {
-      padding: 1.5rem;
-      border-radius: 1rem;
-      background: linear-gradient(to bottom right, hsl(var(--violet) / 0.1), hsl(var(--cyan-soft) / 0.1));
-      border: 1px solid hsl(var(--violet) / 0.2);
-    }
-
-    .highlight-box p {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: hsl(var(--foreground));
-    }
-
-    @media (min-width: 768px) { .highlight-box p { font-size: 1.25rem; } }
-
-    /* Grid layouts */
     .two-col-grid {
       display: grid;
-      gap: 4rem;
+      gap: 3rem;
       align-items: center;
     }
 
-    @media (min-width: 1024px) { .two-col-grid { grid-template-columns: 1fr 1fr; gap: 6rem; } }
+    @media (min-width: 768px) {
+      .two-col-grid { grid-template-columns: 1fr 1fr; gap: 4rem; }
+    }
 
     .three-col-grid {
       display: grid;
       gap: 2rem;
     }
 
-    @media (min-width: 768px) { .three-col-grid { grid-template-columns: repeat(3, 1fr); } }
-
-    .programs-grid {
-      display: grid;
-      gap: 1.5rem;
+    @media (min-width: 768px) {
+      .three-col-grid { grid-template-columns: repeat(3, 1fr); }
     }
 
-    @media (min-width: 640px) { .programs-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1024px) { .programs-grid { grid-template-columns: repeat(3, 1fr); } }
+    /* ====================== BADGES ====================== */
+    .badge {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      border-radius: 9999px;
+    }
 
-    /* Cards */
-    .belief-card { text-align: center; }
+    .badge-violet {
+      background: hsl(var(--violet) / 0.1);
+      color: hsl(var(--violet));
+    }
+
+    .badge-cyan {
+      background: hsl(var(--cyan-soft) / 0.2);
+      color: hsl(var(--blue-ocean));
+    }
+
+    .badge-rose {
+      background: hsl(350 80% 50% / 0.1);
+      color: hsl(350 80% 45%);
+    }
+
+    /* ====================== CARDS ====================== */
+    .belief-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+      padding: 2rem;
+    }
+
+    .belief-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: hsl(var(--foreground));
+    }
 
     .icon-box {
-      width: 5rem;
-      height: 5rem;
-      margin: 0 auto 2rem;
+      width: 4rem;
+      height: 4rem;
       border-radius: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.5s ease;
-    }
-
-    .healer-card:hover .icon-box {
-      transform: scale(1.1);
-      box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.3);
     }
 
     .icon-box svg {
-      width: 2.5rem;
-      height: 2.5rem;
+      width: 2rem;
+      height: 2rem;
       color: white;
     }
 
     .icon-box-sm {
-      width: 4rem;
-      height: 4rem;
-      margin: 0;
+      width: 3.5rem;
+      height: 3.5rem;
     }
 
     .icon-box-sm svg {
-      width: 2rem;
-      height: 2rem;
-    }
-
-    .program-card {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      cursor: default;
-    }
-
-    .program-title {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: hsl(var(--foreground));
-      line-height: 1.4;
-    }
-
-    .belief-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: hsl(var(--foreground));
-      line-height: 1.5;
+      width: 1.75rem;
+      height: 1.75rem;
     }
 
     /* Benefits */
@@ -680,21 +680,55 @@
       color: hsl(var(--foreground));
     }
 
-    /* Feature cards */
+    .highlight-box {
+      background: linear-gradient(to right, hsl(var(--primary) / 0.1), hsl(var(--accent) / 0.1));
+      border-left: 4px solid hsl(var(--primary));
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 0.75rem 0.75rem 0;
+    }
+
+    .highlight-box p {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: hsl(var(--foreground));
+    }
+
+    /* Programs */
+    .programs-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 640px) { .programs-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .programs-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .program-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.25rem;
+      padding: 2rem;
+    }
+
+    .program-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: hsl(var(--foreground));
+    }
+
+    /* Features */
     .feature-card {
-      position: relative;
       padding: 1.5rem;
       border-radius: 1rem;
-      background: hsl(var(--card) / 0.8);
-      backdrop-filter: blur(8px);
+      background: white;
       border: 1px solid hsl(var(--border) / 0.5);
-      transition: all 0.5s ease;
+      transition: all 0.3s ease;
     }
 
     .feature-card:hover {
-      border-color: hsl(var(--violet) / 0.3);
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-hover);
+      border-color: hsl(var(--primary) / 0.3);
+      box-shadow: var(--shadow-soft);
     }
 
     .feature-content {
@@ -1003,6 +1037,356 @@
       filter: blur(60px);
       opacity: 0.6;
     }
+
+    /* ====================== VIDEO SECTION ====================== */
+    .video-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .video-section-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, hsl(var(--primary) / 0.05), hsl(var(--lavender) / 0.15), hsl(var(--accent) / 0.1));
+    }
+
+    .video-section-bg-layer {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top left, hsl(var(--secondary) / 0.3), transparent, hsl(var(--primary) / 0.05));
+    }
+
+    .video-section-grid-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0);
+      background-size: 40px 40px;
+    }
+
+    .video-grid {
+      display: grid;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .video-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+      }
+    }
+
+    .video-mockup-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-mockup-glow {
+      position: absolute;
+      width: 18rem;
+      height: 32rem;
+      border-radius: 3rem;
+      background: linear-gradient(to bottom right, hsl(var(--primary) / 0.3), hsl(var(--accent) / 0.2), hsl(var(--lavender) / 0.3));
+      filter: blur(60px);
+      animation: pulse-soft 4s ease-in-out infinite;
+    }
+
+    @media (min-width: 768px) {
+      .video-mockup-glow {
+        width: 20rem;
+        height: 38rem;
+      }
+    }
+
+    .video-floating-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(12px);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .video-phone-frame {
+      position: relative;
+    }
+
+    .video-phone-outer {
+      position: relative;
+      width: 16rem;
+      aspect-ratio: 9 / 19;
+      background: linear-gradient(to bottom, #374151, #111827, #000);
+      border-radius: 2.5rem;
+      padding: 0.5rem;
+      box-shadow: 0 25px 50px -12px hsl(var(--primary) / 0.2);
+    }
+
+    @media (min-width: 768px) {
+      .video-phone-outer {
+        width: 18rem;
+      }
+    }
+
+    .video-phone-bezel-reflection {
+      position: absolute;
+      inset: 0;
+      border-radius: 2.5rem;
+      background: linear-gradient(to bottom right, hsl(0 0% 100% / 0.1), transparent, transparent);
+      pointer-events: none;
+    }
+
+    .video-phone-notch {
+      position: absolute;
+      top: 0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6rem;
+      height: 1.5rem;
+      background: #000;
+      border-radius: 9999px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .video-phone-notch-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: #1f2937;
+    }
+
+    .video-phone-notch-camera {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 50%;
+      background: #1f2937;
+      border: 1px solid #374151;
+    }
+
+    .video-phone-screen {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      border-radius: 2rem;
+      overflow: hidden;
+    }
+
+    .video-phone-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .video-phone-frame:hover .video-phone-video {
+      transform: scale(1.05);
+    }
+
+    .video-phone-glare {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom right, hsl(0 0% 100% / 0.1), transparent, transparent);
+      pointer-events: none;
+    }
+
+    .video-phone-gradient-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 6rem;
+      background: linear-gradient(to top, hsl(0 0% 0% / 0.4), transparent);
+      pointer-events: none;
+    }
+
+    .video-phone-side-button {
+      position: absolute;
+      width: 0.25rem;
+      background: #374151;
+    }
+
+    .video-phone-side-button-left-1 {
+      left: -0.25rem;
+      top: 6rem;
+      height: 2rem;
+      border-radius: 0.125rem 0 0 0.125rem;
+    }
+
+    .video-phone-side-button-left-2 {
+      left: -0.25rem;
+      top: 9rem;
+      height: 3rem;
+      border-radius: 0.125rem 0 0 0.125rem;
+    }
+
+    .video-phone-side-button-left-3 {
+      left: -0.25rem;
+      top: 13rem;
+      height: 3rem;
+      border-radius: 0.125rem 0 0 0.125rem;
+    }
+
+    .video-phone-side-button-right {
+      right: -0.25rem;
+      top: 8rem;
+      height: 4rem;
+      border-radius: 0 0.125rem 0.125rem 0;
+    }
+
+    .video-phone-reflection {
+      position: absolute;
+      bottom: -2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12rem;
+      height: 2rem;
+      background: linear-gradient(to top, hsl(var(--primary) / 0.1), transparent);
+      filter: blur(16px);
+      border-radius: 9999px;
+    }
+
+    .video-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .video-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1.25rem;
+      border-radius: 9999px;
+      background: linear-gradient(to right, hsl(var(--primary) / 0.15), hsl(var(--accent) / 0.1), hsl(var(--lavender) / 0.15));
+      border: 1px solid hsl(var(--primary) / 0.2);
+      box-shadow: var(--shadow-soft);
+      width: fit-content;
+    }
+
+    .video-badge svg {
+      width: 1rem;
+      height: 1rem;
+      color: hsl(var(--primary));
+    }
+
+    .video-badge span {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: hsl(var(--primary));
+    }
+
+    .video-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .video-title {
+      font-size: 2.25rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: hsl(var(--foreground));
+    }
+
+    @media (min-width: 768px) {
+      .video-title { font-size: 3rem; }
+    }
+
+    @media (min-width: 1024px) {
+      .video-title { font-size: 3.75rem; }
+    }
+
+    .video-title-decoration {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .video-title-decoration-line-1 {
+      width: 4rem;
+      height: 0.375rem;
+      border-radius: 9999px;
+      background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+    }
+
+    .video-title-decoration-line-2 {
+      width: 2rem;
+      height: 0.375rem;
+      border-radius: 9999px;
+      background: linear-gradient(to right, hsl(var(--accent)), hsl(var(--lavender)));
+    }
+
+    .video-title-decoration-line-3 {
+      width: 1rem;
+      height: 0.375rem;
+      border-radius: 9999px;
+      background: hsl(var(--lavender));
+    }
+
+    .video-description {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .video-description-primary {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: hsl(var(--foreground));
+      line-height: 1.6;
+    }
+
+    @media (min-width: 768px) {
+      .video-description-primary { font-size: 1.5rem; }
+    }
+
+    .video-description-secondary {
+      font-size: 1.125rem;
+      color: hsl(var(--muted-foreground));
+      line-height: 1.6;
+    }
+
+    @media (min-width: 768px) {
+      .video-description-secondary { font-size: 1.25rem; }
+    }
+
+    .video-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      padding-top: 1rem;
+    }
+
+    .video-pill {
+      padding: 0.75rem 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid hsl(var(--border) / 0.5);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(8px);
+    }
+
+    .video-pill-mind {
+      background: linear-gradient(to bottom right, hsl(var(--primary) / 0.2), hsl(var(--primary) / 0.05));
+    }
+
+    .video-pill-body {
+      background: linear-gradient(to bottom right, hsl(var(--accent) / 0.2), hsl(var(--accent) / 0.05));
+    }
+
+    .video-pill-soul {
+      background: linear-gradient(to bottom right, hsl(var(--lavender) / 0.3), hsl(var(--lavender) / 0.1));
+    }
+
+    .video-pill span {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: hsl(var(--foreground));
+    }
   </style>
 </head>
 <body>
@@ -1245,7 +1629,7 @@
         <div class="two-col-grid">
           <div style="order: 2;">
             <!-- Problem Illustration -->
-            <svg class="scene-illustration" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 32rem; margin: 0 auto;">
+            <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 32rem; margin: 0 auto;">
               <defs>
                 <linearGradient id="probBg" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" style="stop-color:hsl(266, 60%, 96%)"/>
@@ -1388,61 +1772,135 @@
 
           <div class="image-glow-container">
             <div class="image-glow"></div>
-            <!-- App Interface Illustration -->
-            <svg class="animate-float" viewBox="0 0 280 500" xmlns="http://www.w3.org/2000/svg" style="max-width: 16rem; margin: 0 auto; position: relative; z-index: 10; filter: drop-shadow(0 20px 40px hsl(262 50% 30% / 0.2));">
-              <defs>
-                <linearGradient id="phoneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style="stop-color:#1a1a2e"/>
-                  <stop offset="100%" style="stop-color:#16213e"/>
-                </linearGradient>
-                <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" style="stop-color:hsl(262, 68%, 50%)"/>
-                  <stop offset="100%" style="stop-color:hsl(274, 89%, 58%)"/>
-                </linearGradient>
-              </defs>
-              
-              <!-- Phone frame -->
-              <rect x="10" y="10" width="260" height="480" rx="35" fill="url(#phoneGrad)"/>
-              <rect x="20" y="20" width="240" height="460" rx="28" fill="#0f0f1a"/>
-              
-              <!-- Screen content -->
-              <rect x="30" y="60" width="220" height="120" rx="15" fill="url(#screenGrad)" opacity="0.2"/>
-              <text x="50" y="100" fill="white" font-size="14" font-weight="600">Welcome back</text>
-              <text x="50" y="125" fill="white" font-size="20" font-weight="700">Your Journey</text>
-              <text x="50" y="155" fill="hsl(195, 93%, 77%)" font-size="12">Day 14 of transformation</text>
-              
-              <!-- Progress cards -->
-              <rect x="30" y="195" width="100" height="80" rx="12" fill="url(#wheelGrad1)" opacity="0.9"/>
-              <text x="45" y="225" fill="white" font-size="11" font-weight="600">Life Purpose</text>
-              <text x="45" y="255" fill="white" font-size="18" font-weight="700">78%</text>
-              
-              <rect x="150" y="195" width="100" height="80" rx="12" fill="url(#wheelGrad4)" opacity="0.9"/>
-              <text x="165" y="225" fill="white" font-size="11" font-weight="600">Health</text>
-              <text x="165" y="255" fill="white" font-size="18" font-weight="700">85%</text>
-              
-              <!-- Today's practice -->
-              <rect x="30" y="290" width="220" height="90" rx="15" fill="#1e1e3a"/>
-              <text x="50" y="320" fill="white" font-size="12" font-weight="600">Today's Practice</text>
-              <text x="50" y="345" fill="hsl(var(--muted-foreground))" font-size="11">Nervous System Reset</text>
-              <circle cx="220" cy="335" r="20" fill="url(#screenGrad)"/>
-              <path d="M215 330 L227 335 L215 340 Z" fill="white"/>
-              
-              <!-- AI Chat preview -->
-              <rect x="30" y="395" width="220" height="70" rx="15" fill="#1e1e3a"/>
-              <circle cx="55" cy="430" r="18" fill="url(#screenGrad)"/>
-              <text x="80" y="420" fill="white" font-size="11" font-weight="600">Ask Riyan</text>
-              <text x="80" y="440" fill="hsl(var(--muted-foreground))" font-size="10">Your AI companion is here...</text>
-              
-              <!-- Status bar -->
-              <text x="40" y="45" fill="white" font-size="11">9:41</text>
-              <circle cx="220" cy="40" r="3" fill="#22c55e"/>
-              <rect x="230" y="37" width="20" height="8" rx="2" fill="white" opacity="0.8"/>
-            </svg>
+            <img 
+              src="images/app-mockup.png" 
+              alt="Healer mobile app interface" 
+              class="animate-float"
+              style="max-width: 16rem; margin: 0 auto; position: relative; z-index: 10; border-radius: 1.5rem; filter: drop-shadow(0 20px 40px hsl(262 50% 30% / 0.2));"
+            >
             
             <div class="floating-badge glass-card" style="top: -1rem; left: -1rem; display: none;">
               <div class="floating-badge-content">
                 <div class="floating-badge-dot"></div>
                 <span>Live Now</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================== VIDEO SECTION ====================== -->
+    <section class="healer-section video-section">
+      <!-- Rich gradient background -->
+      <div class="video-section-bg"></div>
+      <div class="video-section-bg-layer"></div>
+      
+      <!-- Animated mesh gradient orbs -->
+      <div class="blob" style="top: -10rem; left: -10rem; width: 600px; height: 600px; background: linear-gradient(to bottom right, hsl(var(--primary) / 0.2), hsl(var(--accent) / 0.15)); opacity: 0.6;"></div>
+      <div class="blob" style="bottom: -10rem; right: -10rem; width: 700px; height: 700px; background: linear-gradient(to top left, hsl(var(--lavender) / 0.25), hsl(var(--primary) / 0.1)); opacity: 0.5; animation-delay: -7s;"></div>
+      <div class="blob" style="top: 50%; left: 33%; width: 400px; height: 400px; background: linear-gradient(to right, hsl(var(--accent) / 0.2), hsl(var(--lavender) / 0.2)); opacity: 0.4; animation-delay: -12s;"></div>
+      
+      <!-- Subtle grid pattern overlay -->
+      <div class="video-section-grid-pattern"></div>
+
+      <div class="healer-container animate-on-scroll" style="position: relative; z-index: 10;">
+        <div class="video-grid">
+          
+          <!-- Mobile Mockup with Video -->
+          <div class="video-mockup-container" style="order: 2;">
+            <!-- Glow behind phone -->
+            <div class="video-mockup-glow"></div>
+            
+            <!-- Floating elements -->
+            <div class="video-floating-orb" style="top: -2rem; right: 1rem; width: 5rem; height: 5rem; background: linear-gradient(to bottom right, hsl(var(--accent) / 0.6), hsl(var(--lavender) / 0.6)); opacity: 0.7;"></div>
+            <div class="video-floating-orb" style="top: 25%; left: -2.5rem; width: 4rem; height: 4rem; background: linear-gradient(to bottom right, hsl(var(--primary) / 0.5), hsl(var(--accent) / 0.5)); opacity: 0.6; animation-delay: -3s;"></div>
+            <div class="video-floating-orb" style="bottom: -1.5rem; left: 25%; width: 6rem; height: 6rem; background: linear-gradient(to bottom right, hsl(var(--lavender) / 0.6), hsl(var(--primary) / 0.4)); opacity: 0.5; animation-delay: -6s;"></div>
+            
+            <!-- Phone Mockup -->
+            <div class="video-phone-frame">
+              <!-- Phone outer frame -->
+              <div class="video-phone-outer">
+                <!-- Phone bezel reflection -->
+                <div class="video-phone-bezel-reflection"></div>
+                
+                <!-- Dynamic Island / Notch -->
+                <div class="video-phone-notch">
+                  <div class="video-phone-notch-dot"></div>
+                  <div class="video-phone-notch-camera"></div>
+                </div>
+                
+                <!-- Phone screen -->
+                <div class="video-phone-screen">
+                  <!-- Video inside screen -->
+                  <video 
+                    src="images/healer-video.mp4" 
+                    autoplay 
+                    loop 
+                    muted 
+                    playsinline 
+                    class="video-phone-video"
+                  ></video>
+                  
+                  <!-- Screen glare effect -->
+                  <div class="video-phone-glare"></div>
+                  
+                  <!-- Bottom gradient fade -->
+                  <div class="video-phone-gradient-fade"></div>
+                </div>
+                
+                <!-- Side buttons -->
+                <div class="video-phone-side-button video-phone-side-button-left-1"></div>
+                <div class="video-phone-side-button video-phone-side-button-left-2"></div>
+                <div class="video-phone-side-button video-phone-side-button-left-3"></div>
+                <div class="video-phone-side-button video-phone-side-button-right"></div>
+              </div>
+              
+              <!-- Reflection under phone -->
+              <div class="video-phone-reflection"></div>
+            </div>
+          </div>
+
+          <!-- Text Content -->
+          <div class="video-content" style="order: 1;">
+            <!-- Badge -->
+            <div class="video-badge">
+              <svg width="16" height="16"><use href="#icon-sparkles"/></svg>
+              <span>Transform Your Life</span>
+            </div>
+            
+            <!-- Heading -->
+            <div class="video-heading">
+              <h2 class="video-title">
+                How <span class="gradient-text">Healer</span> Works
+              </h2>
+              <div class="video-title-decoration">
+                <div class="video-title-decoration-line-1"></div>
+                <div class="video-title-decoration-line-2"></div>
+                <div class="video-title-decoration-line-3"></div>
+              </div>
+            </div>
+            
+            <!-- Description -->
+            <div class="video-description">
+              <p class="video-description-primary">
+                Enhance Every Area of Your Life from Mind to Body & Soul
+              </p>
+              <p class="video-description-secondary">
+                Daily 20mins lessons from life coaches to transform your life
+              </p>
+            </div>
+
+            <!-- Feature pills -->
+            <div class="video-pills">
+              <div class="video-pill video-pill-mind">
+                <span>Mind</span>
+              </div>
+              <div class="video-pill video-pill-body">
+                <span>Body</span>
+              </div>
+              <div class="video-pill video-pill-soul">
+                <span>Soul</span>
               </div>
             </div>
           </div>
@@ -1524,61 +1982,11 @@
         <div class="two-col-grid">
           <div class="image-glow-container animate-on-scroll">
             <div class="image-glow"></div>
-            <!-- AI Companion Illustration -->
-            <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width: 20rem; margin: 0 auto; position: relative; z-index: 10; border-radius: 1.5rem; filter: drop-shadow(0 20px 40px hsl(262 50% 30% / 0.2));">
-              <defs>
-                <linearGradient id="aiBg" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style="stop-color:hsl(262, 68%, 45%)"/>
-                  <stop offset="100%" style="stop-color:hsl(274, 89%, 50%)"/>
-                </linearGradient>
-                <radialGradient id="glowCenter" cx="50%" cy="30%" r="60%">
-                  <stop offset="0%" style="stop-color:hsl(195, 93%, 77%);stop-opacity:0.4"/>
-                  <stop offset="100%" style="stop-color:transparent"/>
-                </radialGradient>
-              </defs>
-              
-              <!-- Background -->
-              <rect width="400" height="500" rx="24" fill="url(#aiBg)"/>
-              <rect width="400" height="500" rx="24" fill="url(#glowCenter)"/>
-              
-              <!-- Abstract AI representation -->
-              <g transform="translate(200, 220)">
-                <!-- Outer glow rings -->
-                <circle cx="0" cy="0" r="120" fill="none" stroke="white" stroke-width="1" opacity="0.2"/>
-                <circle cx="0" cy="0" r="100" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
-                <circle cx="0" cy="0" r="80" fill="none" stroke="white" stroke-width="2" opacity="0.4"/>
-                
-                <!-- Central orb -->
-                <circle cx="0" cy="0" r="60" fill="white" opacity="0.9"/>
-                <circle cx="0" cy="0" r="50" fill="url(#wheelGrad2)" opacity="0.8"/>
-                
-                <!-- Face features (friendly AI) -->
-                <circle cx="-15" cy="-10" r="8" fill="white"/>
-                <circle cx="15" cy="-10" r="8" fill="white"/>
-                <circle cx="-15" cy="-10" r="4" fill="hsl(262, 68%, 50%)"/>
-                <circle cx="15" cy="-10" r="4" fill="hsl(262, 68%, 50%)"/>
-                
-                <!-- Smile -->
-                <path d="M-20 15 Q0 35 20 15" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
-                
-                <!-- Floating elements around -->
-                <g opacity="0.6">
-                  <circle cx="-90" cy="-50" r="8" fill="hsl(195, 93%, 77%)"/>
-                  <circle cx="95" cy="-30" r="6" fill="hsl(274, 89%, 70%)"/>
-                  <circle cx="-70" cy="60" r="5" fill="white"/>
-                  <circle cx="80" cy="70" r="7" fill="hsl(195, 93%, 77%)"/>
-                  <circle cx="0" cy="-100" r="4" fill="white"/>
-                </g>
-              </g>
-              
-              <!-- Text -->
-              <text x="200" y="400" text-anchor="middle" fill="white" font-size="24" font-weight="700">Riyan</text>
-              <text x="200" y="430" text-anchor="middle" fill="white" font-size="14" opacity="0.8">Your AI Life Coach</text>
-              
-              <!-- Decorative lines -->
-              <path d="M50 470 Q200 450 350 470" stroke="white" stroke-width="1" fill="none" opacity="0.3"/>
-            </svg>
-            
+            <img 
+              src="images/ai-companion.png" 
+              alt="AI Companion Riyan - Transformation through AI Life Coaching" 
+              style="max-width: 20rem; margin: 0 auto; position: relative; z-index: 10; border-radius: 1.5rem; filter: drop-shadow(0 20px 40px hsl(262 50% 30% / 0.2));"
+            >
           </div>
 
           <div style="display: flex; flex-direction: column; gap: 1.5rem;" class="stagger-children">
@@ -1625,75 +2033,11 @@
       <div class="healer-container animate-on-scroll">
         <div class="two-col-grid">
           <div style="order: 2;">
-            <!-- Differentiator Illustration -->
-            <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; border-radius: 1.5rem; filter: drop-shadow(0 10px 30px hsl(262 50% 30% / 0.1));">
-              <defs>
-                <linearGradient id="calmBg" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style="stop-color:hsl(266, 60%, 96%)"/>
-                  <stop offset="100%" style="stop-color:hsl(195, 60%, 96%)"/>
-                </linearGradient>
-              </defs>
-              <rect width="500" height="400" rx="24" fill="url(#calmBg)"/>
-              
-              <!-- Calm scene - person in nature -->
-              <g transform="translate(250, 280)">
-                <!-- Ground -->
-                <ellipse cx="0" cy="80" rx="180" ry="30" fill="#d1fae5" opacity="0.6"/>
-                
-                <!-- Trees -->
-                <g transform="translate(-120, -50)">
-                  <rect x="-5" y="40" width="10" height="60" fill="#92400e"/>
-                  <circle cx="0" cy="20" r="35" fill="#22c55e"/>
-                  <circle cx="-20" cy="35" r="25" fill="#16a34a"/>
-                  <circle cx="20" cy="35" r="25" fill="#16a34a"/>
-                </g>
-                <g transform="translate(130, -30)">
-                  <rect x="-4" y="30" width="8" height="50" fill="#92400e"/>
-                  <circle cx="0" cy="10" r="30" fill="#22c55e"/>
-                  <circle cx="-15" cy="25" r="20" fill="#16a34a"/>
-                  <circle cx="15" cy="25" r="20" fill="#16a34a"/>
-                </g>
-                
-                <!-- Person meditating -->
-                <g>
-                  <!-- Legs crossed -->
-                  <ellipse cx="0" cy="50" rx="40" ry="15" fill="hsl(262, 68%, 50%)"/>
-                  <!-- Body -->
-                  <ellipse cx="0" cy="20" rx="25" ry="35" fill="hsl(262, 68%, 50%)"/>
-                  <!-- Head -->
-                  <circle cx="0" cy="-30" r="25" fill="#fcd9b6"/>
-                  <!-- Hair -->
-                  <path d="M-22 -45 Q-25 -60 0 -58 Q25 -60 22 -45" fill="#5a3825"/>
-                  <!-- Eyes closed peacefully -->
-                  <path d="M-10 -30 Q-7 -28 -4 -30" stroke="#333" stroke-width="2" fill="none"/>
-                  <path d="M4 -30 Q7 -28 10 -30" stroke="#333" stroke-width="2" fill="none"/>
-                  <!-- Peaceful smile -->
-                  <path d="M-5 -20 Q0 -17 5 -20" stroke="#333" stroke-width="1.5" fill="none"/>
-                  <!-- Hands in lap -->
-                  <circle cx="-15" cy="35" r="10" fill="#fcd9b6"/>
-                  <circle cx="15" cy="35" r="10" fill="#fcd9b6"/>
-                </g>
-                
-                <!-- Aura/glow around person -->
-                <circle cx="0" cy="0" r="80" fill="none" stroke="hsl(262, 68%, 50%)" stroke-width="2" opacity="0.2"/>
-                <circle cx="0" cy="0" r="100" fill="none" stroke="hsl(195, 93%, 77%)" stroke-width="1" opacity="0.3"/>
-              </g>
-              
-              <!-- Sun -->
-              <circle cx="400" cy="80" r="40" fill="#fbbf24" opacity="0.8"/>
-              <g stroke="#fbbf24" stroke-width="3" opacity="0.6">
-                <line x1="400" y1="20" x2="400" y2="35"/>
-                <line x1="400" y1="125" x2="400" y2="140"/>
-                <line x1="340" y1="80" x2="355" y2="80"/>
-                <line x1="445" y1="80" x2="460" y2="80"/>
-              </g>
-              
-              <!-- Birds -->
-              <g fill="none" stroke="#6b7280" stroke-width="2">
-                <path d="M80 100 Q90 90 100 100 Q110 90 120 100"/>
-                <path d="M130 80 Q138 72 146 80 Q154 72 162 80"/>
-              </g>
-            </svg>
+            <img 
+              src="images/differentiator.png" 
+              alt="Calm person meditating in nature" 
+              style="max-width: 100%; border-radius: 1.5rem; filter: drop-shadow(0 10px 30px hsl(262 50% 30% / 0.1));"
+            >
           </div>
 
           <div style="order: 1; display: flex; flex-direction: column; gap: 2rem;">
@@ -1762,57 +2106,11 @@
           <div class="founder-grid">
             <div class="image-glow-container">
               <div class="image-glow"></div>
-              <!-- Founder Illustration -->
-              <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" style="max-width: 16rem; margin: 0 auto; position: relative; z-index: 10; border-radius: 1.5rem; filter: drop-shadow(0 20px 40px hsl(262 50% 30% / 0.2));">
-                <defs>
-                  <linearGradient id="founderBg" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:hsl(266, 60%, 94%)"/>
-                    <stop offset="100%" style="stop-color:hsl(195, 60%, 94%)"/>
-                  </linearGradient>
-                </defs>
-                <rect width="300" height="400" rx="24" fill="url(#founderBg)"/>
-                
-                <!-- Person -->
-                <g transform="translate(150, 250)">
-                  <!-- Body -->
-                  <path d="M-50 30 Q-60 80 -40 120 L40 120 Q60 80 50 30 Q30 20 0 20 Q-30 20 -50 30" fill="hsl(262, 68%, 50%)"/>
-                  
-                  <!-- Neck -->
-                  <rect x="-15" y="-10" width="30" height="35" fill="#fcd9b6"/>
-                  
-                  <!-- Head -->
-                  <ellipse cx="0" cy="-50" rx="45" ry="55" fill="#fcd9b6"/>
-                  
-                  <!-- Hair -->
-                  <path d="M-45 -70 Q-50 -120 0 -115 Q50 -120 45 -70 Q40 -85 0 -90 Q-40 -85 -45 -70" fill="#3d2314"/>
-                  <path d="M-45 -70 Q-55 -40 -48 -30" fill="#3d2314"/>
-                  <path d="M45 -70 Q55 -40 48 -30" fill="#3d2314"/>
-                  
-                  <!-- Eyes -->
-                  <ellipse cx="-15" cy="-55" rx="6" ry="8" fill="white"/>
-                  <ellipse cx="15" cy="-55" rx="6" ry="8" fill="white"/>
-                  <circle cx="-15" cy="-54" r="4" fill="#4a3728"/>
-                  <circle cx="15" cy="-54" r="4" fill="#4a3728"/>
-                  
-                  <!-- Eyebrows -->
-                  <path d="M-25 -68 Q-15 -72 -5 -68" stroke="#3d2314" stroke-width="2" fill="none"/>
-                  <path d="M5 -68 Q15 -72 25 -68" stroke="#3d2314" stroke-width="2" fill="none"/>
-                  
-                  <!-- Nose -->
-                  <path d="M0 -50 L0 -35 Q-5 -30 0 -28 Q5 -30 0 -35" stroke="#e5c4a8" stroke-width="2" fill="none"/>
-                  
-                  <!-- Warm smile -->
-                  <path d="M-15 -18 Q0 -8 15 -18" stroke="#c9846e" stroke-width="3" fill="none" stroke-linecap="round"/>
-                  
-                  <!-- Earrings -->
-                  <circle cx="-48" cy="-40" r="5" fill="#fbbf24"/>
-                  <circle cx="48" cy="-40" r="5" fill="#fbbf24"/>
-                </g>
-                
-                <!-- Decorative elements -->
-                <circle cx="50" cy="60" r="20" fill="hsl(262, 68%, 50%)" opacity="0.2"/>
-                <circle cx="250" cy="100" r="15" fill="hsl(195, 93%, 77%)" opacity="0.3"/>
-              </svg>
+              <img 
+                src="images/founder.png" 
+                alt="Mira - Founder of Healer" 
+                style="max-width: 16rem; margin: 0 auto; position: relative; z-index: 10; border-radius: 1.5rem; filter: drop-shadow(0 20px 40px hsl(262 50% 30% / 0.2));"
+              >
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 2rem;">
@@ -1881,53 +2179,11 @@
           </div>
 
           <div style="padding-top: 3rem;">
-            <!-- CTA Illustration -->
-            <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" style="max-width: 48rem; margin: 0 auto; border-radius: 1.5rem; filter: drop-shadow(0 20px 40px hsl(262 50% 30% / 0.15));">
-              <defs>
-                <linearGradient id="ctaBg" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style="stop-color:hsl(262, 68%, 50%)"/>
-                  <stop offset="100%" style="stop-color:hsl(274, 89%, 58%)"/>
-                </linearGradient>
-                <linearGradient id="pathGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color:hsl(195, 93%, 77%)"/>
-                  <stop offset="100%" style="stop-color:white"/>
-                </linearGradient>
-              </defs>
-              <rect width="600" height="300" rx="24" fill="url(#ctaBg)"/>
-              
-              <!-- Path/journey line -->
-              <path d="M50 250 Q150 200 200 220 Q250 240 300 180 Q350 120 400 150 Q450 180 550 100" stroke="url(#pathGrad)" stroke-width="4" fill="none" stroke-linecap="round"/>
-              
-              <!-- Dots along path -->
-              <circle cx="50" cy="250" r="8" fill="white"/>
-              <circle cx="200" cy="220" r="6" fill="hsl(195, 93%, 77%)"/>
-              <circle cx="300" cy="180" r="6" fill="hsl(195, 93%, 77%)"/>
-              <circle cx="400" cy="150" r="6" fill="hsl(195, 93%, 77%)"/>
-              <circle cx="550" cy="100" r="12" fill="white"/>
-              
-              <!-- Star at end -->
-              <g transform="translate(550, 100)">
-                <path d="M0 -20 L5 -5 L20 -5 L8 5 L12 20 L0 10 L-12 20 L-8 5 L-20 -5 L-5 -5 Z" fill="#fbbf24"/>
-              </g>
-              
-              <!-- Person walking -->
-              <g transform="translate(280, 160)">
-                <circle cx="0" cy="-25" r="15" fill="#fcd9b6"/>
-                <path d="M-10 -5 L-15 40 M10 -5 L20 35" stroke="#fcd9b6" stroke-width="8" stroke-linecap="round"/>
-                <rect x="-12" y="-10" width="24" height="30" rx="8" fill="hsl(262, 68%, 40%)"/>
-              </g>
-              
-              <!-- Clouds -->
-              <g fill="white" opacity="0.3">
-                <ellipse cx="100" cy="60" rx="40" ry="20"/>
-                <ellipse cx="130" cy="55" rx="30" ry="18"/>
-                <ellipse cx="480" cy="40" rx="35" ry="18"/>
-                <ellipse cx="510" cy="35" rx="25" ry="15"/>
-              </g>
-              
-              <!-- Text -->
-              <text x="300" y="280" text-anchor="middle" fill="white" font-size="16" font-weight="600" opacity="0.9">Your journey begins here</text>
-            </svg>
+            <img 
+              src="images/cta-illustration.png" 
+              alt="Your journey begins here" 
+              style="max-width: 48rem; margin: 0 auto; border-radius: 1.5rem; filter: drop-shadow(0 20px 40px hsl(262 50% 30% / 0.15));"
+            >
           </div>
         </div>
       </div>
