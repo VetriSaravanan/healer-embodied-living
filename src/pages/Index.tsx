@@ -6,6 +6,7 @@ import PhilosophySection from "@/components/sections/PhilosophySection";
 import WhatIsHealerSection from "@/components/sections/WhatIsHealerSection";
 import ProgramsSection from "@/components/sections/ProgramsSection";
 import AICompanionSection from "@/components/sections/AICompanionSection";
+import VideoSection from "@/components/sections/VideoSection";
 import DifferentiatorSection from "@/components/sections/DifferentiatorSection";
 import FounderSection from "@/components/sections/FounderSection";
 import CTASection from "@/components/sections/CTASection";
@@ -26,6 +27,7 @@ const Index = () => {
           <ProgramsSection />
         </section>
         <AICompanionSection />
+        <VideoSection />
         <DifferentiatorSection />
         <PartnershipSection />
         <section id="about">
