@@ -23,11 +23,11 @@ const Index = () => {
           <PhilosophySection />
         </section>
         <WhatIsHealerSection />
+        <VideoSection />
         <section id="programs">
           <ProgramsSection />
         </section>
         <AICompanionSection />
-        <VideoSection />
         <DifferentiatorSection />
         <PartnershipSection />
         <section id="about">
