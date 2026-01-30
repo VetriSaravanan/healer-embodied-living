@@ -44,21 +44,21 @@ const VideoSection = () => {
 
           {/* Video Side */}
           <div className="relative flex items-center justify-center">
-            {/* Outer glow ring */}
-            <div className="absolute w-80 h-80 md:w-[26rem] md:h-[26rem] rounded-full bg-gradient-to-br from-primary/20 via-accent/20 to-lavender/30 blur-2xl animate-pulse-soft" />
+            {/* Outer glow */}
+            <div className="absolute w-64 h-[28rem] md:w-72 md:h-[32rem] rounded-3xl bg-gradient-to-br from-primary/20 via-accent/20 to-lavender/30 blur-2xl animate-pulse-soft" />
             
             {/* Floating decorative elements */}
             <div className="absolute -top-8 -right-4 w-20 h-20 bg-gradient-to-br from-accent/50 to-lavender/50 rounded-full blur-sm opacity-70 animate-float" />
             <div className="absolute top-1/4 -left-8 w-16 h-16 bg-gradient-to-br from-primary/40 to-accent/40 rounded-full blur-sm opacity-60 animate-float" style={{ animationDelay: '-2s' }} />
             <div className="absolute -bottom-4 right-1/4 w-24 h-24 bg-gradient-to-br from-lavender/60 to-primary/30 rounded-full blur-sm opacity-50 animate-float" style={{ animationDelay: '-4s' }} />
             
-            {/* Main video container */}
+            {/* Main video container - 9:16 portrait aspect ratio */}
             <div className="relative">
-              {/* Glass circle background */}
-              <div className="absolute inset-0 scale-110 rounded-full bg-gradient-to-br from-accent/25 via-lavender/35 to-primary/20 blur-xl" />
+              {/* Glass background */}
+              <div className="absolute inset-0 scale-105 rounded-3xl bg-gradient-to-br from-accent/25 via-lavender/35 to-primary/20 blur-xl" />
               
-              {/* Video container with glass border */}
-              <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden shadow-glow border-4 border-white/40 backdrop-blur-sm">
+              {/* Video container with glass border - 9:16 ratio */}
+              <div className="relative w-56 md:w-64 aspect-[9/16] rounded-3xl overflow-hidden shadow-glow border-4 border-white/40 backdrop-blur-sm">
                 <video 
                   src={purposeVideo} 
                   autoPlay 
@@ -71,10 +71,10 @@ const VideoSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-accent/10 pointer-events-none" />
               </div>
               
-              {/* Floating petals/shapes around video */}
+              {/* Floating decorative shapes */}
               <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-accent/70 to-lavender/70 rounded-full blur-[2px] opacity-80" />
-              <div className="absolute top-8 -right-8 w-10 h-10 bg-gradient-to-br from-lavender/80 to-primary/60 rounded-full blur-[2px] opacity-70" />
-              <div className="absolute bottom-12 -left-6 w-14 h-14 bg-gradient-to-br from-primary/50 to-accent/50 rounded-full blur-[2px] opacity-60" />
+              <div className="absolute top-16 -right-8 w-10 h-10 bg-gradient-to-br from-lavender/80 to-primary/60 rounded-full blur-[2px] opacity-70" />
+              <div className="absolute bottom-20 -left-6 w-14 h-14 bg-gradient-to-br from-primary/50 to-accent/50 rounded-full blur-[2px] opacity-60" />
             </div>
           </div>
         </div>
