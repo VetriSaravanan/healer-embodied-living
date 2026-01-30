@@ -2,26 +2,30 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { cn } from "@/lib/utils";
 import purposeVideo from "@/assets/Carl Jung - How to Find Your Purpose.mp4";
 import { Sparkles } from "lucide-react";
-
 const VideoSection = () => {
-  const { ref, isVisible } = useScrollAnimation();
-  
-  return (
-    <section className="healer-section relative overflow-hidden">
+  const {
+    ref,
+    isVisible
+  } = useScrollAnimation();
+  return <section className="healer-section relative overflow-hidden">
       {/* Rich gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-lavender/15 to-accent/10" />
       <div className="absolute inset-0 bg-gradient-to-tl from-secondary/30 via-transparent to-primary/5" />
       
       {/* Animated mesh gradient orbs */}
       <div className="blob absolute -top-40 -left-40 w-[600px] h-[600px] bg-gradient-to-br from-primary/20 to-accent/15 opacity-60" />
-      <div className="blob absolute -bottom-40 -right-40 w-[700px] h-[700px] bg-gradient-to-tl from-lavender/25 to-primary/10 opacity-50" style={{ animationDelay: '-7s' }} />
-      <div className="blob absolute top-1/2 left-1/3 w-[400px] h-[400px] bg-gradient-to-r from-accent/20 to-lavender/20 opacity-40" style={{ animationDelay: '-12s' }} />
+      <div className="blob absolute -bottom-40 -right-40 w-[700px] h-[700px] bg-gradient-to-tl from-lavender/25 to-primary/10 opacity-50" style={{
+      animationDelay: '-7s'
+    }} />
+      <div className="blob absolute top-1/2 left-1/3 w-[400px] h-[400px] bg-gradient-to-r from-accent/20 to-lavender/20 opacity-40" style={{
+      animationDelay: '-12s'
+    }} />
       
       {/* Subtle grid pattern overlay */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)`,
-        backgroundSize: '40px 40px'
-      }} />
+      backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--primary)) 1px, transparent 0)`,
+      backgroundSize: '40px 40px'
+    }} />
 
       <div ref={ref} className={cn("healer-container relative z-10", isVisible ? "animate-fade-in-slow" : "opacity-0")}>
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -33,8 +37,12 @@ const VideoSection = () => {
             
             {/* Floating elements */}
             <div className="absolute -top-8 right-4 w-20 h-20 bg-gradient-to-br from-accent/60 to-lavender/60 rounded-full blur-md opacity-70 animate-float" />
-            <div className="absolute top-1/4 -left-10 w-16 h-16 bg-gradient-to-br from-primary/50 to-accent/50 rounded-full blur-md opacity-60 animate-float" style={{ animationDelay: '-3s' }} />
-            <div className="absolute -bottom-6 left-1/4 w-24 h-24 bg-gradient-to-br from-lavender/60 to-primary/40 rounded-full blur-lg opacity-50 animate-float" style={{ animationDelay: '-6s' }} />
+            <div className="absolute top-1/4 -left-10 w-16 h-16 bg-gradient-to-br from-primary/50 to-accent/50 rounded-full blur-md opacity-60 animate-float" style={{
+            animationDelay: '-3s'
+          }} />
+            <div className="absolute -bottom-6 left-1/4 w-24 h-24 bg-gradient-to-br from-lavender/60 to-primary/40 rounded-full blur-lg opacity-50 animate-float" style={{
+            animationDelay: '-6s'
+          }} />
             
             {/* Phone Mockup */}
             <div className="relative group">
@@ -52,14 +60,7 @@ const VideoSection = () => {
                 {/* Phone screen */}
                 <div className="relative w-full h-full bg-black rounded-[2rem] overflow-hidden">
                   {/* Video inside screen */}
-                  <video 
-                    src={purposeVideo} 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
+                  <video src={purposeVideo} autoPlay loop muted playsInline className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   
                   {/* Screen glare effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none" />
@@ -91,7 +92,7 @@ const VideoSection = () => {
             {/* Heading */}
             <div className="space-y-5">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-foreground">
-                How <span className="gradient-text">Astralbeat</span> Works
+                How <span className="gradient-text">Healer</span> Works
               </h2>
               <div className="flex items-center gap-2">
                 <div className="w-16 h-1.5 rounded-full bg-gradient-to-r from-primary to-accent" />
@@ -112,28 +113,24 @@ const VideoSection = () => {
 
             {/* Feature pills */}
             <div className="flex flex-wrap gap-3 pt-4">
-              {[
-                { label: 'Mind', gradient: 'from-primary/20 to-primary/5' },
-                { label: 'Body', gradient: 'from-accent/20 to-accent/5' },
-                { label: 'Soul', gradient: 'from-lavender/30 to-lavender/10' }
-              ].map((item, index) => (
-                <div 
-                  key={item.label}
-                  className={cn(
-                    "px-6 py-3 rounded-2xl border border-border/50 shadow-soft backdrop-blur-sm",
-                    `bg-gradient-to-br ${item.gradient}`
-                  )}
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
+              {[{
+              label: 'Mind',
+              gradient: 'from-primary/20 to-primary/5'
+            }, {
+              label: 'Body',
+              gradient: 'from-accent/20 to-accent/5'
+            }, {
+              label: 'Soul',
+              gradient: 'from-lavender/30 to-lavender/10'
+            }].map((item, index) => <div key={item.label} className={cn("px-6 py-3 rounded-2xl border border-border/50 shadow-soft backdrop-blur-sm", `bg-gradient-to-br ${item.gradient}`)} style={{
+              animationDelay: `${index * 0.1}s`
+            }}>
                   <span className="text-sm font-semibold text-foreground">{item.label}</span>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default VideoSection;
