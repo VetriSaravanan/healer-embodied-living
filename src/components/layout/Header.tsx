@@ -93,19 +93,19 @@ const Header = () => {
         >
           <nav className="flex flex-col gap-2 py-4 px-2 bg-card/80 backdrop-blur-xl rounded-2xl border border-border/50">
             <a 
-              href="#philosophy" 
+              href="/#philosophy" 
               className="text-muted-foreground hover:text-violet hover:bg-secondary/50 font-medium transition-all duration-300 px-4 py-3 rounded-xl"
             >
               Philosophy
             </a>
             <a 
-              href="#programs" 
+              href="/#programs" 
               className="text-muted-foreground hover:text-violet hover:bg-secondary/50 font-medium transition-all duration-300 px-4 py-3 rounded-xl"
             >
               Programs
             </a>
             <a 
-              href="#about" 
+              href="/#about" 
               className="text-muted-foreground hover:text-violet hover:bg-secondary/50 font-medium transition-all duration-300 px-4 py-3 rounded-xl"
             >
               About
