@@ -55,9 +55,14 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Healer. All rights reserved.
-          </p>
+          <div className="flex flex-col gap-1">
+            <p className="text-sm text-muted-foreground">
+              © {new Date().getFullYear()} AstralBeat Technologies Pvt Ltd
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Contact: <a href="mailto:support@astralbeat.in" className="hover:text-primary transition-colors">support@astralbeat.in</a>
+            </p>
+          </div>
           <p className="text-sm text-muted-foreground flex items-center gap-1">
             Made with <Heart className="w-4 h-4 text-rose-500 fill-rose-500" /> for your journey
           </p>

@@ -110,6 +110,12 @@ const Header = () => {
             >
               About
             </a>
+            <a 
+              href="/contact" 
+              className="text-muted-foreground hover:text-violet hover:bg-secondary/50 font-medium transition-all duration-300 px-4 py-3 rounded-xl"
+            >
+              Contact
+            </a>
             <div className="px-2 pt-2">
               <a href="https://form.typeform.com/to/Uujm1fxF" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" size="default" className="w-full">
