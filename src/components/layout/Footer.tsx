@@ -38,6 +38,20 @@ const Footer = () => {
               </a>
             ))}
           </nav>
+
+          {/* Contact Details */}
+          <div className="flex flex-col items-center md:items-end gap-2">
+            <h4 className="text-foreground font-semibold text-lg">Need help with our apps?</h4>
+            <a
+              href="mailto:support@astralbeat.in"
+              className="text-muted-foreground hover:text-primary transition-colors duration-300"
+            >
+              Email: support@astralbeat.in
+            </a>
+            <p className="text-sm text-muted-foreground">
+              We usually respond within 24–48 hours.
+            </p>
+          </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
