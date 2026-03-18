@@ -57,6 +57,12 @@ const Header = () => {
             >
               About
             </a>
+            <a 
+              href="/contact" 
+              className="text-muted-foreground hover:text-violet font-medium transition-colors duration-300"
+            >
+              Contact
+            </a>
           </nav>
 
           {/* CTA */}
