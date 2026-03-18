@@ -2,9 +2,9 @@ import logo from "@/assets/logo.png";
 import { Heart } from "lucide-react";
 
 const footerLinks = [
-  { label: "Philosophy", href: "#philosophy" },
-  { label: "Programs", href: "#programs" },
-  { label: "About", href: "#about" },
+  { label: "Philosophy", href: "/#philosophy" },
+  { label: "Programs", href: "/#programs" },
+  { label: "About", href: "/#about" },
   { label: "Contact", href: "/contact" },
 ];
 
