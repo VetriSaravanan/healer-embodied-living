@@ -40,19 +40,19 @@ const Header = () => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-10">
             <a 
-              href="#philosophy" 
+              href="/#philosophy" 
               className="text-muted-foreground hover:text-violet font-medium transition-colors duration-300"
             >
               Philosophy
             </a>
             <a 
-              href="#programs" 
+              href="/#programs" 
               className="text-muted-foreground hover:text-violet font-medium transition-colors duration-300"
             >
               Programs
             </a>
             <a 
-              href="#about" 
+              href="/#about" 
               className="text-muted-foreground hover:text-violet font-medium transition-colors duration-300"
             >
               About
