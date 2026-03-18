@@ -58,7 +58,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border/50 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-col gap-1">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} AstralBeat Technologies Pvt Ltd
+              © {new Date().getFullYear()} © {new Date().getFullYear()} AstralBeat Innovations Pvt Ltd
             </p>
             <p className="text-sm text-muted-foreground">
               Contact: <a href="mailto:support@astralbeat.in" className="hover:text-primary transition-colors">support@astralbeat.in</a>

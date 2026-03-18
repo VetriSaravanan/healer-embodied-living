@@ -30,7 +30,7 @@ const Contact = () => {
                   <Building2 className="w-6 h-6 text-violet" />
                 </div>
                 <div>
-                  <h2 className="text-xl font-semibold text-foreground mb-1">AstralBeat Technologies Pvt Ltd</h2>
+                  <h2 className="text-xl font-semibold text-foreground mb-1"><h2 className="text-xl font-semibold text-foreground mb-1">AstralBeat Innovations Pvt Ltd</h2></h2>
                   <p className="text-muted-foreground">
                     We build AI-powered mobile applications and digital products.
                   </p>
