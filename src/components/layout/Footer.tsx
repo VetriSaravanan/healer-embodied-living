@@ -5,6 +5,7 @@ const footerLinks = [
   { label: "Philosophy", href: "#philosophy" },
   { label: "Programs", href: "#programs" },
   { label: "About", href: "#about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Footer = () => {
